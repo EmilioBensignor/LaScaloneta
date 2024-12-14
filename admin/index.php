@@ -33,6 +33,9 @@ $arrayRutas = [
     'iniciar-sesion' => [
         'titulo' => 'Ingresar al Panel de Administración',
     ],
+    'registro' => [
+        'titulo' => 'Registro de Usuario',
+    ],
     '404' => [
         'titulo' => 'Página no Encontrada',
         'requiereAutenticacion' => true,
@@ -68,26 +71,26 @@ if($requiereAutenticacion && !$autenticacion->estaAutenticado()) {
 <body>
     <header>
         <p>Panel de Administración</p>
+        <nav>
+            <div>
+                <?php
+                if($autenticacion->estaAutenticado()):
+                ?>
+                <ul>
+                    <li><a href="index.php?s=home">Tablero</a></li>
+                    <li><a href="index.php?s=plantilla">Plantilla</a></li>
+                    <li>
+                        <form action="acciones/cerrar-sesion.php" method="post">
+                            <button type="submit" class="button"><?= $autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
+                        </form>
+                    </li>
+                </ul>
+                <?php
+                endif;
+                ?>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <div>
-            <?php
-            if($autenticacion->estaAutenticado()):
-            ?>
-            <ul>
-                <li><a href="index.php?s=home">Tablero</a></li>
-                <li><a href="index.php?s=plantilla">Plantilla</a></li>
-                <li>
-                    <form action="acciones/cerrar-sesion.php" method="post">
-                        <button type="submit" class="button"><?= $autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
-                    </form>
-                </li>
-            </ul>
-            <?php
-            endif;
-            ?>
-        </div>
-    </nav>
     <div>
     <?php
     if(isset($_SESSION['mensajeExito'])):

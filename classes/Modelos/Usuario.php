@@ -66,6 +66,23 @@ class Usuario
         return $usuario;
     }
 
+    public function crear(): bool
+    {
+        $db = (new DBConexion())->getDB();
+        $query = "INSERT INTO usuarios (rol_fk, email, password, nombre, apellido)
+                VALUES (:rol_fk, :email, :password, :nombre, :apellido)";
+        
+        $stmt = $db->prepare($query);
+        
+        return $stmt->execute([
+            'rol_fk' => $this->rol_fk,
+            'email' => $this->email,
+            'password' => password_hash($this->password, PASSWORD_DEFAULT),
+            'nombre' => $this->nombre,
+            'apellido' => $this->apellido
+        ]);
+    }
+
     public function getUsuarioId(): int
     {
         return $this->usuario_id;

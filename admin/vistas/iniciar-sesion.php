@@ -13,5 +13,9 @@
             </div>
             <button type="submit" class="btn">Ingresar</button>
         </form>
+        
+        <div class="registro-link">
+            <p>¿No tienes una cuenta? <a href="index.php?s=registro">Regístrate aquí</a></p>
+        </div>
     </section>
 </main>

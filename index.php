@@ -29,7 +29,6 @@ if (!isset($arrayRutas[$ruta])) {
 };
 
 $configurarRuta = $arrayRutas[$ruta];
-
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +68,7 @@ $configurarRuta = $arrayRutas[$ruta];
     require __DIR__ . '/vistas/' . $ruta . '.php';
     ?>
     <footer>
-        <p>Lara Crupnicoff - Da Vinci - 2023</p>
+        <p>Lara Crupnicoff - Da Vinci - 2024</p>
     </footer>
 </body>
 </html>

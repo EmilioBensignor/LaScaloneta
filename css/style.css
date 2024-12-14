@@ -6,11 +6,15 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    height: 100dvh;
+    display: grid;
+    grid: "header" auto "main" 1fr "footer" auto / 1fr;
     background-color: #C8E7FF;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
+    grid-area: header;
     background-color: #78BAF0;
     padding: 1vw;
     border-bottom: 2px solid #4496E0;
@@ -67,6 +71,7 @@ ul li a {
 }
 
 footer {
+    grid-area: footer;
     background-color: #78BAF0;
     padding: 1vw;
 }
@@ -74,6 +79,7 @@ footer {
 /* Home */
 .main-home {
     width: 100%;
+    grid-area: main;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,6 +176,10 @@ span {
 }
 
 /* Camisetas en Home */
+
+.mainDetalle {
+    grid-area: main;
+}
 
 .sectionCamisetasHome {
     border: 3px solid #4496E0;
@@ -376,6 +386,7 @@ h4 {
 
 /* Contacto */
 .main-contacto {
+    grid-area: main;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -468,6 +479,7 @@ form label {
 
 /* Gracias */
 .main-gracias {
+    grid-area: main;
     height: 65vh;
 }
 
@@ -488,6 +500,7 @@ form label {
 
 /* 404 */
 .main-404 {
+    grid-area: main;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -506,30 +519,30 @@ form label {
 /* ADMIN */
 
 /* Iniciar Sesion */
-.inicar-sesion{
+.inicar-sesion {
     padding: 2vw;
 }
 
-.inicar-sesion h1{
+.inicar-sesion h1 {
     font-size: 2vw;
     margin-left: 0;
     margin-bottom: 1.5vw;
     text-align: center;
 }
 
-.form-fila{
+.form-fila {
     display: flex;
     flex-direction: column;
     margin-bottom: 1vw;
 }
 
-.form-fila input{
+.form-fila input {
     width: 25%;
     height: 2vw;
     padding: 0 0.5vw;
 }
 
-.btn{
+.btn {
     background-color: #4496E0;
     box-shadow: 2px 2px 2px #78BAF0;
     border-radius: 20px;
@@ -539,7 +552,7 @@ form label {
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
     background-color: #78BAF0;
 }
 
