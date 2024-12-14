@@ -18,6 +18,7 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
                     <th>Apellido</th>
                     <th>Club</th>
                     <th>Descripcion</th>
+                    <th>Posicion</th>
                     <th>Imagen del Jugador</th>
                     <th>Imagen de la Camiseta</th>
                     <th>Acciones</th>

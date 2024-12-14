@@ -61,6 +61,7 @@ $configurarRuta = $arrayRutas[$ruta];
                 <li><a href="index.php?s=home">Home</a></li>
                 <li><a href="index.php?s=plantilla">Plantel</a></li>
                 <li><a href="index.php?s=contacto">Contacto</a></li>
+                <li><a href="admin/index.php?s=iniciar-sesion">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>

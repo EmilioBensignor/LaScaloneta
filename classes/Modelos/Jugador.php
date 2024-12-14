@@ -348,8 +348,10 @@ class Jugador
 
     public function getEstadoPublicacion(): EstadoPublicacion
     {
-        return $this->estadoPublicacion;
+        $estadoPublicacion = new EstadoPublicacion();
+        return $estadoPublicacion->traerPorId($this->estado_publicacion_fk);
     }
+
     public function setEstadoPublicacion(EstadoPublicacion $estadoPublicacion): void
     {
         $this->estadoPublicacion = $estadoPublicacion;

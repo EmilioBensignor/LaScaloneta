@@ -36,9 +36,30 @@ class EstadoPublicacion
         $query = "SELECT * FROM estados_publicacion";
         $stmt = $db->prepare($query);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
+        
+        $estados = [];
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $estado = new self();
+            $estado->cargarDatosDeArray($row);
+            $estados[] = $estado;
+        }
+        
+        return $estados;
+    }
 
-        return $stmt->fetchAll();
+    public function traerPorId(int $id): ?self
+    {
+        $db = (new DBConexion())->getDB();
+        $query = "SELECT * FROM estados_publicacion WHERE estado_publicacion_id = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id]);
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if (!$row) return null;
+        
+        $this->cargarDatosDeArray($row);
+        return $this;
     }
 
     public function getEstadoPublicacionId(): int
