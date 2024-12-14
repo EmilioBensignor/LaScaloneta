@@ -53,8 +53,8 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
                             endif;
                             ?>
                         </td>
-                        <td><img src="<?= '../imgs/' . $jugador->getImagenJugador(); ?>" alt="<?= $jugador->getAltImagenJugador(); ?>"></td>
-                        <td><img src="<?= '../imgs/' . $jugador->getImagenCamiseta(); ?>" alt="<?= $jugador->getAltImagenCamiseta(); ?>"></td>
+                        <td><img src="<?= '../images/' . $jugador->getImagenJugador(); ?>" alt="<?= $jugador->getAltImagenJugador(); ?>" class="imgPlantilla"></td>
+                        <td><img src="<?= '../images/' . $jugador->getImagenCamiseta(); ?>" alt="<?= $jugador->getAltImagenCamiseta(); ?>" class="imgPlantilla"></td>
                         <td>
                             <a href="index.php?s=jugador-editar&id=<?= $jugador->getNumeroCamiseta(); ?>">Editar</a>
                             <a href="index.php?s=jugador-eliminar&id=<?= $jugador->getNumeroCamiseta(); ?>">Eliminar</a>

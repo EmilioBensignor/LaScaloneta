@@ -556,6 +556,10 @@ button:hover {
     background-color: #78BAF0;
 }
 
+.imgPlantilla {
+    width: 5rem;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 900px) {
