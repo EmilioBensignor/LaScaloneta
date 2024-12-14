@@ -1,0 +1,678 @@
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #C8E7FF;
+}
+
+header {
+    background-color: #78BAF0;
+    padding: 1vw;
+    border-bottom: 2px solid #4496E0;
+}
+
+.headerSuperior {
+    display: flex;
+    align-items: center;
+}
+
+.divLogo img {
+    width: 4vw;
+}
+
+h1 {
+    margin-left: 2vw;
+    font-size: 3vw;
+}
+
+h2 {
+    font-size: 2.4vw;
+    text-align: center;
+    margin: 2vw 0;
+}
+
+h3 {
+    font-size: 1.3vw;
+}
+
+p {
+    font-size: 1vw;
+}
+
+nav {
+    padding: 1vw 0;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+ul li:hover {
+    background-color: #C8E7FF;
+    border-radius: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    margin: 1vw;
+    font-size: 2vw;
+}
+
+footer {
+    background-color: #78BAF0;
+    padding: 1vw;
+}
+
+/* Home */
+.main-home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+span {
+    font-weight: bolder;
+}
+
+.banner {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/banner-argentina.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80vw;
+    height: 50vh;
+    border: 5px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #4496E0;
+    margin-bottom: 3vw;
+}
+
+.banner p {
+    text-align: center;
+    background-color: #5FC6FF;
+    border-radius: 20px;
+    padding: 0.5vw;
+    margin: 0 2vw 1vw 2vw;
+    color: black;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+/* Sección Partidos Camisetas Goles */
+
+.partidos-camisetas-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 1vw 2vw;
+    margin-bottom: 3vw;
+}
+
+.partidos-camisetas-estadisticas h3 {
+    text-align: center;
+    margin-bottom: 0.5vw;
+}
+
+.pDescriptivo {
+    text-align: center;
+    margin-bottom: 1vw;
+}
+
+.divDosPartidos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divPartido {
+    border: 3px solid #4496E0;
+    border-radius: 20px;
+    padding: 0.5vw;
+    margin-left: 0.5vw;
+    margin-bottom: 1vw;
+    width: 15vw;
+    box-shadow: 2px 2px 2px #4496E0;
+}
+
+.divPartido p:first-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+.divPais {
+    display: flex;
+    align-items: center;
+}
+
+.divPais img {
+    width: 2vw;
+}
+
+.divPais p {
+    margin-left: 1vw;
+}
+
+.divFinal {
+    margin: 0 auto;
+}
+
+/* Camisetas en Home */
+
+.sectionCamisetasHome {
+    border: 3px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #4496E0;
+    padding: 1vw;
+}
+
+.gridCamisetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 2vw;
+}
+
+.camisetaHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vw;
+}
+
+.camisetaHome img {
+    width: 6vw;
+}
+
+.camisetaHome a {
+    text-decoration: none;
+    color: black;
+    margin-top: 0.5vw;
+}
+
+.irPlantilla {
+    margin: 0 auto;
+    background-color: #4496E0;
+    box-shadow: 2px 2px 2px #5FC6FF;
+    border-radius: 20px;
+    padding: 1vw;
+    width: 50%;
+    text-align: center;
+}
+
+.irPlantilla a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Goleadores */
+
+h4 {
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.sectionGAA {
+    border: 3px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #4496E0;
+    padding: 1.5vw;
+    text-align: start;
+}
+
+.sectionGAA ul {
+    display: flex;
+    flex-direction: column;
+    margin: 1vw 0
+}
+
+.sectionGAA ul li {
+    font-size: 1vw;
+    margin-bottom: 0.5vw;
+}
+
+/* Contacto en Home */
+
+.contacto-home {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.divContactoHome {
+    width: 40vw;
+    text-align: center;
+    border: 3px solid #4496E0;
+    box-shadow: 2px 2px 2px #4496E0;
+    border-radius: 20px;
+    padding: 1vw;
+    margin: 2vw 0;
+}
+
+.divContactoHome h3 {
+    margin-bottom: 1vw;
+}
+
+.divContactoHome p:last-of-type {
+    margin-bottom: 1vw;
+}
+
+.divContactoHome div {
+    margin: 0 auto;
+    background-color: #4496E0;
+    box-shadow: 2px 2px 2px #78BAF0;
+    border-radius: 20px;
+    padding: 0.7vw;
+    width: 40%;
+    text-align: center;
+}
+
+.divContactoHome div a {
+    font-size: 1.2vw;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Plantilla */
+.sectionExplicación {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 1.5vw 0 2.5vw 0;
+}
+
+.sectionExplicación p {
+    width: 50%;
+    font-size: 1.5vw;
+}
+
+.sectionJugadores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 1.5vw;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+    padding-bottom: 0.5vw;
+    margin: 2vw;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.card img {
+    width: 16vw;
+    border-bottom: 1px solid #5FC6FF;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
+.card p {
+    width: 12vw;
+    margin-top: 0.5vw;
+}
+
+/* Detalle */
+.sectionDescripcion {
+    display: flex;
+    align-items: center;
+    margin: 0 3vw;
+}
+
+.sectionDescripcion img {
+    width: 20vw;
+    border: 3px solid black;
+    border-radius: 140px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.sectionDescripcion p {
+    width: 30vw;
+    font-size: 1.2vw;
+    margin-left: 4vw;
+}
+
+.sectionCamiseta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: -7vw 15vw 3vw 0;
+}
+
+.sectionCamiseta p {
+    font-size: 1.4vw;
+    width: 40%;
+    text-align: center;
+}
+
+.sectionCamiseta img {
+    width: 17vw;
+}
+
+/* Contacto */
+.main-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-bottom: 2vw;
+}
+
+.main-contacto form p {
+    margin-bottom: 1vw;
+    font-size: 1.5vw;
+}
+
+fieldset {
+    width: 80vw;
+    padding: 1vw;
+    border-radius: 15px;
+}
+
+legend {
+    color: black;
+    font-size: 1.2vw;
+}
+
+.sectionContacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+}
+
+.sectionContacto div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.sectionContacto input,
+.sectionContacto select {
+    width: 20vw;
+    font-size: 1vw;
+    margin: 0.5vw 0;
+    padding: 0.5vw;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.divTextarea {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    margin: 1vw 0 1vw 9.5vw;
+}
+
+.divTextarea textarea {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5vw;
+    margin-top: 0.5vw;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: black;
+    font-size: 0.8vw;
+}
+
+.divButtonForm {
+    display: flex;
+    justify-content: end;
+}
+
+.divButtonForm button {
+    font-size: 1.5vw;
+    padding: 0.5vw 1vw;
+    color: black;
+    background-color: #4496E0;
+    box-shadow: 2px 2px 2px #78BAF0;
+    border: 2px solid #78BAF0;
+    border-radius: 15px;
+    margin-right: 3vw;
+    cursor: pointer;
+}
+
+.divButtonForm button:hover {
+    color: #C8E7FF;
+}
+
+/* Gracias */
+.main-gracias {
+    height: 65vh;
+}
+
+.main-gracias p {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.divMessiSaludo {
+    display: flex;
+    justify-content: center;
+    margin: 2vw 0;
+}
+
+.divMessiSaludo img {
+    width: 15vw;
+}
+
+/* 404 */
+.main-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vw 0;
+}
+
+.main-404 p {
+    margin-bottom: 2vw;
+    font-size: 1.5vw;
+}
+
+.main-404 ul li a {
+    font-size: 3vw;
+}
+
+/* ADMIN */
+
+/* Iniciar Sesion */
+.inicar-sesion{
+    padding: 2vw;
+}
+
+.inicar-sesion h1{
+    font-size: 2vw;
+    margin-left: 0;
+    margin-bottom: 1.5vw;
+    text-align: center;
+}
+
+.form-fila{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vw;
+}
+
+.form-fila input{
+    width: 25%;
+    height: 2vw;
+    padding: 0 0.5vw;
+}
+
+.btn{
+    background-color: #4496E0;
+    box-shadow: 2px 2px 2px #78BAF0;
+    border-radius: 20px;
+    border: none;
+    padding: 1vw 2vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #78BAF0;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 900px) {
+    h1 {
+        font-size: 3.5vw;
+    }
+
+    h2 {
+        font-size: 2.8vw;
+    }
+
+    h3 {
+        font-size: 2.3vw;
+    }
+
+    h4 {
+        font-size: 1.8vw;
+    }
+
+    ul li a {
+        font-size: 2.3vw;
+    }
+
+    p {
+        font-size: 1.5vw;
+    }
+
+    legend {
+        font-size: 1.5vw;
+    }
+
+    .sectionContacto input,
+    .sectionContacto select {
+        font-size: 1.5vw;
+        padding: 0.8vw;
+    }
+
+    form label {
+        font-size: 1.5vw;
+    }
+
+    .divTextarea textarea {
+        border-radius: 10px;
+    }
+
+    .banner p {
+        font-size: 1.8vw;
+    }
+
+    .partidos-camisetas-estadisticas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .partidos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vw 0;
+    }
+
+    .divDosPartidos {
+        width: 60vw;
+        justify-content: space-evenly;
+    }
+
+    .divPartido {
+        width: 20vw;
+        padding: 1vw;
+    }
+
+    .divPais {
+        margin-bottom: 1vw;
+    }
+
+    .divPais img {
+        width: 3vw;
+    }
+
+    .camisetas {
+        margin: 2vw 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sectionCamisetasHome {
+        width: 60vw;
+    }
+
+    .camisetaHome img {
+        width: 8vw;
+    }
+
+    .estadisticas {
+        margin: 2vw 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sectionGAA ul li {
+        font-size: 1.3vw;
+    }
+
+    .divContactoHome div a {
+        font-size: 1.5vw;
+    }
+
+    .sectionJugadores {
+        margin: 0 5vw;
+    }
+
+    .card {
+        box-shadow: none;
+        width: 25vw;
+    }
+
+    .card img {
+        width: 100%;
+    }
+
+    .card p {
+        width: 15vw;
+        margin-bottom: 1vw;
+    }
+
+    .divButtonForm button {
+        box-shadow: 0.5px 0.5px 0.5px #78BAF0;
+    }
+}

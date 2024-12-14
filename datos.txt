@@ -1,0 +1,10 @@
+Carrera: Diseño Web
+Materia: Programación II
+Cuatrimestre: 3er Cuatrimestre
+Año: 2023
+Turno: Mañana
+Comisión: B
+Apellido: Crupnicoff
+Nombre: Lara
+Docente: Santiago Gallino
+Carácter de entrega: Segundo parcial
