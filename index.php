@@ -26,13 +26,15 @@ $arrayRutas = [
 
 if (!isset($arrayRutas[$ruta])) {
     $ruta = '404';
-};
+}
+;
 
 $configurarRuta = $arrayRutas[$ruta];
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,28 +42,31 @@ $configurarRuta = $arrayRutas[$ruta];
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="favicon.png">
-    <title><?=$configurarRuta['titulo'];?> | Argentina Campeón</title>
+    <title><?= $configurarRuta['titulo']; ?> | Argentina Campeón</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <div class="headerSuperior">
-            <div class="divLogo">
-                <img src="images/logoArg.png" alt="escudo-argentina">
+            <div>
+                <div class="divLogo">
+                    <img src="images/logoArg.png" alt="escudo-argentina">
+                </div>
+                <h1>
+                    La Scaloneta
+                </h1>
             </div>
-            <h1>
-                La Scaloneta
-            </h1>
+            <a class="iniciar" href="admin/index.php?s=iniciar-sesion">Iniciar Sesión</a>
         </div>
         <nav>
             <ul>
                 <li><a href="index.php?s=home">Home</a></li>
                 <li><a href="index.php?s=plantilla">Plantel</a></li>
                 <li><a href="index.php?s=contacto">Contacto</a></li>
-                <li><a href="admin/index.php?s=iniciar-sesion">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -72,4 +77,5 @@ $configurarRuta = $arrayRutas[$ruta];
         <p>Lara Crupnicoff - Da Vinci - 2024</p>
     </footer>
 </body>
+
 </html>
