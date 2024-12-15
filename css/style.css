@@ -605,6 +605,10 @@ button:hover {
         font-size: 0.75rem;
         padding: 0.5rem 0.75rem;
     }
+
+    .main-404 img {
+        width: 20rem;
+    }
 }
 
 @media (width >=660px) {
@@ -637,7 +641,8 @@ button:hover {
     p,
     .banner p,
     .sectionGAA ul li,
-    form label {
+    form label,
+    .main-404 p {
         font-size: 0.875rem;
     }
 
@@ -708,6 +713,10 @@ button:hover {
         font-size: 0.875rem;
         padding: 0.5rem 1rem;
     }
+
+    .main-404 img {
+        width: 25rem;
+    }
 }
 
 @media (width >=1080px) {
@@ -746,7 +755,8 @@ button:hover {
     .sectionGAA ul li,
     .sectionContacto input,
     .sectionContacto select,
-    .divTextarea textarea {
+    .divTextarea textarea,
+    .main-404 p {
         font-size: 1rem;
     }
 
@@ -817,6 +827,14 @@ button:hover {
     .sectionContacto>div {
         width: 49%;
     }
+
+    .main-404 {
+        gap: 2rem;
+    }
+
+    .main-404 img {
+        width: 30rem;
+    }
 }
 
 @media (width >=1440px) {
@@ -865,7 +883,8 @@ button:hover {
 
     p,
     .banner p,
-    .sectionGAA ul li {
+    .sectionGAA ul li,
+    .main-404 p {
         font-size: 1.125rem;
     }
 
@@ -896,5 +915,9 @@ button:hover {
 
     form label {
         font-size: 1.125rem;
+    }
+
+    .main-404 img {
+        width: 35rem;
     }
 }
