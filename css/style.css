@@ -26,7 +26,7 @@ header {
     justify-content: space-between;
 }
 
-.headerSuperior > div {
+.headerSuperior>div {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -81,7 +81,8 @@ ul li:hover {
     background-color: #C8E7FF;
 }
 
-ul li a, .iniciar {
+ul li a,
+.iniciar {
     text-decoration: none;
     color: black;
     font-size: 0.75rem;
@@ -155,7 +156,7 @@ span {
     gap: 1.5rem;
 }
 
-.partidos-camisetas-estadisticas > div {
+.partidos-camisetas-estadisticas>div {
     width: 100%;
 }
 
@@ -254,25 +255,32 @@ span {
     color: black;
 }
 
-.irPlantilla, .divContactoHome div {
+.irPlantilla,
+.divContactoHome div {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.irPlantilla a, .divContactoHome div a {
+.irPlantilla a,
+.divContactoHome div a,
+.main-404 ul li a, .divButtonForm button {
     background-color: #4496E0;
     box-shadow: 1.5px 1.5px 1.5px #5FC6FF;
+    border: none;
     border-radius: 20px;
     text-align: center;
     padding: 0.5rem 1rem;
     text-decoration: none;
     color: black;
     font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
-.irPlantilla a:hover, .divContactoHome div a:hover {
+.irPlantilla a:hover,
+.divContactoHome div a:hover,
+.main-404 ul li a:hover, .divButtonForm button:hover {
     background-color: #5FC6FF;
 }
 
@@ -412,91 +420,80 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    padding: 1rem;
 }
 
-form {
-    margin-bottom: 2vw;
+.main-contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .main-contacto form p {
-    margin-bottom: 1vw;
-    font-size: 1.5vw;
+    text-align: center;
 }
 
+
 fieldset {
-    width: 80vw;
-    padding: 1vw;
-    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid #4496E0;
+    border-radius: 12px;
+    padding: 1rem;
 }
 
 legend {
     color: black;
-    font-size: 1.2vw;
+    font-size: 1rem;
 }
 
 .sectionContacto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .sectionContacto div {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
 }
 
 form label {
-    font-size: 1vw;
+    font-size: 0.75rem;
     font-weight: bold;
 }
 
 .sectionContacto input,
-.sectionContacto select {
-    width: 20vw;
-    font-size: 1vw;
-    margin: 0.5vw 0;
-    padding: 0.5vw;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-.divTextarea {
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    margin: 1vw 0 1vw 9.5vw;
+.sectionContacto select,
+.divTextarea textarea {
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
 }
 
 .divTextarea textarea {
-    font-family: 'Montserrat', sans-serif;
-    padding: 0.5vw;
-    margin-top: 0.5vw;
-    border: 1px solid black;
-    border-radius: 20px;
-    color: black;
-    font-size: 0.8vw;
+    resize: none;
+}
+
+.divTextarea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .divButtonForm {
     display: flex;
     justify-content: end;
-}
-
-.divButtonForm button {
-    font-size: 1.5vw;
-    padding: 0.5vw 1vw;
-    color: black;
-    background-color: #4496E0;
-    box-shadow: 2px 2px 2px #78BAF0;
-    border: 2px solid #78BAF0;
-    border-radius: 15px;
-    margin-right: 3vw;
-    cursor: pointer;
-}
-
-.divButtonForm button:hover {
-    color: #C8E7FF;
 }
 
 /* Gracias */
@@ -526,16 +523,17 @@ form label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2vw 0;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 .main-404 p {
-    margin-bottom: 2vw;
-    font-size: 1.5vw;
+    text-align: center;
+    font-size: 0.75rem;
 }
 
-.main-404 ul li a {
-    font-size: 3vw;
+.main-404 img {
+    width: 15rem;
 }
 
 /* ADMIN */
@@ -581,137 +579,3 @@ button:hover {
 .imgPlantilla {
     width: 5rem;
 }
-
-/* Responsive */
-
-/* @media screen and (max-width: 900px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 2.8vw;
-    }
-
-    h3 {
-        font-size: 2.3vw;
-    }
-
-    h4 {
-        font-size: 1.8vw;
-    }
-
-    ul li a {
-        font-size: 2.3vw;
-    }
-
-    p {
-        font-size: 1.5vw;
-    }
-
-    legend {
-        font-size: 1.5vw;
-    }
-
-    .sectionContacto input,
-    .sectionContacto select {
-        font-size: 1.5vw;
-        padding: 0.8vw;
-    }
-
-    form label {
-        font-size: 1.5vw;
-    }
-
-    .divTextarea textarea {
-        border-radius: 10px;
-    }
-
-    .banner p {
-        font-size: 1.8vw;
-    }
-
-    .partidos-camisetas-estadisticas {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .partidos {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 2vw 0;
-    }
-
-    .divDosPartidos {
-        width: 60vw;
-        justify-content: space-evenly;
-    }
-
-    .divPartido {
-        width: 20vw;
-        padding: 1vw;
-    }
-
-    .divPais {
-        margin-bottom: 1vw;
-    }
-
-    .divPais img {
-        width: 3vw;
-    }
-
-    .camisetas {
-        margin: 2vw 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sectionCamisetasHome {
-        width: 60vw;
-    }
-
-    .camisetaHome img {
-        width: 8vw;
-    }
-
-    .estadisticas {
-        margin: 2vw 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sectionGAA ul li {
-        font-size: 1.3vw;
-    }
-
-    .divContactoHome div a {
-        font-size: 1.5vw;
-    }
-
-    .sectionJugadores {
-        margin: 0 5vw;
-    }
-
-    .card {
-        box-shadow: none;
-        width: 25vw;
-    }
-
-    .card img {
-        width: 100%;
-    }
-
-    .card p {
-        width: 15vw;
-        margin-bottom: 1vw;
-    }
-
-    .divButtonForm button {
-        box-shadow: 0.5px 0.5px 0.5px #78BAF0;
-    }
-} */
