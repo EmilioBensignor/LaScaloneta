@@ -83,6 +83,18 @@ class Usuario
         ]);
     }
 
+    public function emailExiste(string $email): bool
+    {
+        $db = (new DBConexion())->getDB();
+        $query = "SELECT COUNT(*) FROM usuarios WHERE email = :email";
+        
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        return $stmt->fetchColumn() > 0;
+    }
+
     public function getUsuarioId(): int
     {
         return $this->usuario_id;

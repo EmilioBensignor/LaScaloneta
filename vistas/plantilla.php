@@ -19,6 +19,8 @@
             </div>
             <a href="index.php?s=detalle&id=<?=$jugador->getNumeroCamiseta();?>"><h3><?=$jugador->getNombre();?></h3> <h3><?=$jugador->getApellido();?></h3></a>
             <p><?= $jugador->getClub();?></p>
+            <p>Precio: $<?=$jugador->getPrecio();?></p>
+            <button>Comprar</button>
         </article>
         <?php
             endforeach;

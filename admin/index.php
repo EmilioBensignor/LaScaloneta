@@ -30,12 +30,6 @@ $arrayRutas = [
         'titulo' => 'Ver Jugador',
         'requiereAutenticacion' => true,
     ],
-    'iniciar-sesion' => [
-        'titulo' => 'Ingresar al Panel de Administración',
-    ],
-    'registro' => [
-        'titulo' => 'Registro de Usuario',
-    ],
     '404' => [
         'titulo' => 'Página no Encontrada',
         'requiereAutenticacion' => true,
@@ -51,9 +45,10 @@ $configurarRuta = $arrayRutas[$ruta];
 $autenticacion = new Autenticacion();
 $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
 
-if($requiereAutenticacion && !$autenticacion->estaAutenticado()) {
-    $_SESSION['mensajeError'] = "Para acceder a esta sección se requiere iniciar sesión.";
-    header("Location: index.php?s=iniciar-sesion");
+// Verificar que sea administrador
+if(!$autenticacion->estaAutenticado() || $autenticacion->getUsuario()->getRolFk() != 1) {
+    $_SESSION['mensajeError'] = "No tienes permiso para acceder al panel de administración.";
+    header("Location: ../index.php");  // Cambiado para redireccionar al home
     exit;
 }
 ?>

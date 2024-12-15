@@ -19,6 +19,7 @@ class Jugador
     protected string $alt_imagen_jugador = "";
     protected string $imagen_camiseta = "";
     protected string $alt_imagen_camiseta = "";
+    protected float $precio = 0.00;
 
     protected array $posicionesId = [];
 
@@ -39,6 +40,7 @@ class Jugador
         $this->setAltImagenJugador($data['alt_imagen_jugador']);
         $this->setImagenCamiseta($data['imagen_camiseta']);
         $this->setAltImagenCamiseta($data['alt_imagen_camiseta']);
+        $this->setPrecio($data['precio']);
     }
     /**
      * @return array|self[]
@@ -364,5 +366,15 @@ class Jugador
     public function setPosiciones(array $posiciones): void
     {
         $this->posiciones = $posiciones;
+    }
+
+    public function getPrecio(): float
+    {
+        return $this->precio;
+    }
+
+    public function setPrecio(float $precio): void
+    {
+        $this->precio = $precio;
     }
 }
