@@ -16,6 +16,12 @@ $arrayRutas = [
     'contacto' => [
         'titulo' => 'Subite a la Scaloneta',
     ],
+    'iniciar-sesion' => [
+        'titulo' => 'Iniciar Sesión',
+    ],
+    'registro' => [
+        'titulo' => 'Registro de Usuario',
+    ],
     'gracias' => [
         'titulo' => 'Gracias',
     ],
@@ -56,11 +62,9 @@ $configurarRuta = $arrayRutas[$ruta];
                 <div class="divLogo">
                     <img src="images/logoArg.png" alt="escudo-argentina">
                 </div>
-                <h1>
-                    La Scaloneta
-                </h1>
+                <h1>La Scaloneta</h1>
             </div>
-            <a class="iniciar" href="admin/index.php?s=iniciar-sesion">Iniciar Sesión</a>
+            <a class="iniciar" href="index.php?s=iniciar-sesion">Iniciar Sesión</a>
         </div>
         <nav>
             <ul>
