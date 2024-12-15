@@ -2,7 +2,8 @@
     <h2>Campeones 2022</h2>
     <section class="banner">
         <p>¿Querías tu camiseta con las 3 estrellas pero no hay en ninguna parte?</p>
-        <p>En La Scaloneta no solo podrás ver datos del mundial, sino que vas a poder comprar las camisetas de tus ¡campeones favoritos!</p>
+        <p>En La Scaloneta no solo podrás ver datos del mundial, sino que vas a poder comprar las camisetas de tus
+            ¡campeones favoritos!</p>
     </section>
     <section class="partidos-camisetas-estadisticas">
         <div>
@@ -106,20 +107,20 @@
                     </div>
                 </div>
                 <div class="divPartido divFinal">
-                        <p>Final</p>
-                        <div class="divPais">
-                            <div>
-                                <img src="images/icon-arg.png" alt="icon-argentina">
-                            </div>
-                            <p>Argentina: <span>3 (4)</span></p>
+                    <p>Final</p>
+                    <div class="divPais">
+                        <div>
+                            <img src="images/icon-arg.png" alt="icon-argentina">
                         </div>
-                        <div class="divPais">
-                            <div>
-                                <img src="images/icon-fra.png" alt="icon-francia">
-                            </div>
-                            <p>Francia: <span>3 (2)</span></p>
-                        </div>
+                        <p>Argentina: <span>3 (4)</span></p>
                     </div>
+                    <div class="divPais">
+                        <div>
+                            <img src="images/icon-fra.png" alt="icon-francia">
+                        </div>
+                        <p>Francia: <span>3 (2)</span></p>
+                    </div>
+                </div>
             </section>
         </div>
         <div class="camisetas">
@@ -131,25 +132,33 @@
                         <div>
                             <img src="images/camiseta-dybala.png" alt="camiseta-dybala">
                         </div>
-                        <a href="index.php?s=detalle&id=21"><span><p>Paulo Dybala</p></span></a>
+                        <a href="index.php?s=detalle&id=21"><span>
+                                <p>Paulo Dybala</p>
+                            </span></a>
                     </div>
                     <div class="camisetaHome">
                         <div>
                             <img src="images/camiseta-fernandez.png" alt="camiseta-enzo">
                         </div>
-                        <a href="index.php?s=detalle&id=24"><span><p>Enzo Fernández</p></span></a>
+                        <a href="index.php?s=detalle&id=24"><span>
+                                <p>Enzo Fernández</p>
+                            </span></a>
                     </div>
                     <div class="camisetaHome">
                         <div>
                             <img src="images/camiseta-alvarez.png" alt="camiseta-alvarez">
                         </div>
-                        <a href="index.php?s=detalle&id=9"><span><p>Julián Alvarez</p></span></a>
+                        <a href="index.php?s=detalle&id=9"><span>
+                                <p>Julián Alvarez</p>
+                            </span></a>
                     </div>
                     <div class="camisetaHome">
                         <div>
                             <img src="images/camiseta-otamendi.png" alt="camiseta-otamendi">
                         </div>
-                        <a href="index.php?s=detalle&id=19"><span><p>Nicolás Otamendi</p></span></a>
+                        <a href="index.php?s=detalle&id=19"><span>
+                                <p>Nicolás Otamendi</p>
+                            </span></a>
                     </div>
                 </div>
                 <div class="irPlantilla">
@@ -161,24 +170,28 @@
             <h3>Estadísticas</h3>
             <p class="pDescriptivo">Estas fueron las participaciones argentinas</p>
             <section class="sectionGAA">
-                <h4>Goles - Asistencias</h4>
-                <ul>
-                    <li><span>Lionel Messi</span> - 7 goles - 3 asistencias</li>
-                    <li><span>Julián Álvarez</span> - 4 goles - 0 asistencias</li>
-                    <li><span>Enzo Fernández</span> - 1 gol - 1 asistencia</li>
-                    <li><span>Alexis Mac Allister</span> - 1 gol - 1 asistencia</li>
-                    <li><span>Nahuel Molina</span> - 1 gol - 1 asistencia</li>
-                    <li><span>Ángel Di María</span> - 1 gol - 1 asistencia</li>
-                    <li><span>Nicolás Otamendi</span> - 0 goles - 1 asistencia</li>
-                </ul>
-                <h4>Amarillas</h4>
-                <ul>
-                    <li><span>Gonzalo Montiel</span> - 3 amarillas</li>
-                    <li><span>Marcos Acuña</span> - 3 amarillas</li>
-                    <li><span>Cristian Romero</span> - 2 amarillas</li>
-                    <li><span>Nicolás Otamendi</span> - 2 amarillas</li>
-                    <li><span>Leandro Paredes</span> - 2 amarillas</li>
-                </ul>
+                <div>
+                    <h4>Goles - Asistencias</h4>
+                    <ul>
+                        <li><span>Lionel Messi</span> - 7 goles - 3 asistencias</li>
+                        <li><span>Julián Álvarez</span> - 4 goles - 0 asistencias</li>
+                        <li><span>Enzo Fernández</span> - 1 gol - 1 asistencia</li>
+                        <li><span>Alexis Mac Allister</span> - 1 gol - 1 asistencia</li>
+                        <li><span>Nahuel Molina</span> - 1 gol - 1 asistencia</li>
+                        <li><span>Ángel Di María</span> - 1 gol - 1 asistencia</li>
+                        <li><span>Nicolás Otamendi</span> - 0 goles - 1 asistencia</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Amarillas</h4>
+                    <ul>
+                        <li><span>Gonzalo Montiel</span> - 3 amarillas</li>
+                        <li><span>Marcos Acuña</span> - 3 amarillas</li>
+                        <li><span>Cristian Romero</span> - 2 amarillas</li>
+                        <li><span>Nicolás Otamendi</span> - 2 amarillas</li>
+                        <li><span>Leandro Paredes</span> - 2 amarillas</li>
+                    </ul>
+                </div>
             </section>
         </div>
     </section>
