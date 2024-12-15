@@ -64,7 +64,14 @@ $configurarRuta = $arrayRutas[$ruta];
                 </div>
                 <h1>La Scaloneta</h1>
             </div>
-            <a class="iniciar" href="index.php?s=iniciar-sesion">Iniciar Sesión</a>
+            <?php if(isset($_SESSION['usuario_data'])): ?>
+                <div class="usuario-info">
+                    <?= $_SESSION['usuario_data']['nombre'] . ' ' . $_SESSION['usuario_data']['apellido']; ?>
+                    <a href="acciones/auth/cerrar-sesion.php">Cerrar Sesión</a>
+                </div>
+            <?php else: ?>
+                <a class="iniciar" href="index.php?s=iniciar-sesion">Iniciar Sesión</a>
+            <?php endif; ?>
         </div>
         <nav>
             <ul>

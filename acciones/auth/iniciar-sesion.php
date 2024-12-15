@@ -14,10 +14,20 @@ if(!$autenticacion->iniciarSesion($email, $password)) {
     exit;
 }
 
-$_SESSION['mensajeExito'] = "¡Bienvenido/a " . $autenticacion->getUsuario()->getNombre() . "!";
+// Store only the necessary data as an array in the session
+$usuario = $autenticacion->getUsuario();
+$_SESSION['usuario_data'] = [
+    'usuario_id' => $usuario->getUsuarioId(),
+    'rol_fk' => $usuario->getRolFk(),
+    'email' => $usuario->getEmail(),
+    'nombre' => $usuario->getNombre(),
+    'apellido' => $usuario->getApellido(),
+];
+
+$_SESSION['mensajeExito'] = "¡Bienvenido/a " . $usuario->getNombre() . "!";
 
 // Redirigir según el rol
-if($autenticacion->getUsuario()->getRolFk() == 1) {
+if($usuario->getRolFk() == 1) {
     header('Location: ../../admin/index.php?s=home');
 } else {
     header('Location: ../../index.php');

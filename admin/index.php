@@ -3,6 +3,13 @@ use App\Autenticacion\Autenticacion;
 
 require_once __DIR__ . '/../bootstrap/init.php';
 
+// Verificar la sesión al inicio
+if (!isset($_SESSION['usuario_data']) || $_SESSION['usuario_data']['rol_fk'] != 1) {
+    $_SESSION['mensajeError'] = "No tienes permiso para acceder al panel de administración.";
+    header("Location: ../index.php");
+    exit;
+}
+
 $ruta = $_GET['s'] ?? 'home';
 
 $arrayRutas = [
@@ -45,12 +52,6 @@ $configurarRuta = $arrayRutas[$ruta];
 $autenticacion = new Autenticacion();
 $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
 
-// Verificar que sea administrador
-if(!$autenticacion->estaAutenticado() || $autenticacion->getUsuario()->getRolFk() != 1) {
-    $_SESSION['mensajeError'] = "No tienes permiso para acceder al panel de administración.";
-    header("Location: ../index.php");  // Cambiado para redireccionar al home
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -75,9 +76,9 @@ if(!$autenticacion->estaAutenticado() || $autenticacion->getUsuario()->getRolFk(
                     <li><a href="index.php?s=home">Tablero</a></li>
                     <li><a href="index.php?s=plantilla">Plantilla</a></li>
                     <li>
-                        <form action="acciones/cerrar-sesion.php" method="post">
-                            <button type="submit" class="button"><?= $autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
-                        </form>
+                        <a href="../acciones/auth/cerrar-sesion.php">
+                            <?= $_SESSION['usuario_data']['email'];?> (Cerrar Sesión)
+                        </a>
                     </li>
                 </ul>
                 <?php
