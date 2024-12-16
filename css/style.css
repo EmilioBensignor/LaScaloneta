@@ -609,6 +609,52 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+.imgItemCarrito {
+    width: 7rem;
+}
+
+.main-compra-exitosa {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mensaje-exito {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mensaje-exito h2 {
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.acciones {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-seguir-comprando,
+.btn-volver {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-seguir-comprando {
+    background-color: #007bff;
+}
+
+.btn-volver {
+    background-color: #6c757d;
+}
+
 @media (width >=480px) {
 
     ul li a,

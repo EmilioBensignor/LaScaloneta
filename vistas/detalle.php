@@ -18,7 +18,14 @@
         <div>
             <img src="<?="images/" . $jugador->getImagenCamiseta();?>" alt="<?=$jugador->getAltImagenCamiseta();?>">
             <p>Precio: $<?=$jugador->getPrecio();?></p>
-            <button>Comprar</button>
+            <?php if(isset($_SESSION['usuario_data'])): ?>
+                <form action="acciones/carrito/agregar.php" method="post">
+                    <input type="hidden" name="jugador_id" value="<?=$jugador->getNumeroCamiseta();?>">
+                    <button type="submit">Agregar al Carrito</button>
+                </form>
+            <?php else: ?>
+                <a href="index.php?s=iniciar-sesion" class="btn-login">Iniciá sesión para comprar</a>
+            <?php endif; ?>
         </div>
     </section>
 </main>
