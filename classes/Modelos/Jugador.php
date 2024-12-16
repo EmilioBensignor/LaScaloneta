@@ -40,7 +40,7 @@ class Jugador
         $this->setAltImagenJugador($data['alt_imagen_jugador']);
         $this->setImagenCamiseta($data['imagen_camiseta']);
         $this->setAltImagenCamiseta($data['alt_imagen_camiseta']);
-        $this->setPrecio($data['precio']);
+        $this->setPrecio($data['precio'] ?? 0.0); // Set default value if precio is not present
     }
     /**
      * @return array|self[]
@@ -51,7 +51,8 @@ class Jugador
         $query = "SELECT 
                         j.*,
                         ep.*,
-                        GROUP_CONCAT(p.posicion_id, ':', p.nombre SEPARATOR ' :: ') AS 'posiciones_agrupadas'
+                        GROUP_CONCAT(p.posicion_id, ':', p.nombre SEPARATOR ' :: ') AS 'posiciones_agrupadas',
+                        j.precio
                     FROM jugadores j
                     INNER JOIN estados_publicacion ep
                         ON ep.estado_publicacion_id = j.estado_publicacion_fk
@@ -59,7 +60,7 @@ class Jugador
                         ON j.jugador_id = jtp.jugador_fk
                     LEFT JOIN posiciones p
                         ON p.posicion_id = jtp.posicion_fk
-                    GROUP BY j.jugador_id
+                    GROUP BY j.jugador_id, j.precio
                     ORDER BY j.jugador_id";
         $stmt = $db->prepare($query);
         $stmt->execute();
@@ -146,8 +147,31 @@ class Jugador
     public function crear(array $data): void
     {
         $db = (new DBConexion())->getDB();
-        $query = "INSERT INTO jugadores (usuario_fk, estado_publicacion_fk, nombre, apellido, club, descripcion, imagen_jugador, alt_imagen_jugador, imagen_camiseta, alt_imagen_camiseta)
-                VALUES (:usuario_fk, :estado_publicacion_fk, NOW(), :nombre, :apellido, :club, :descripcion, :imagen_jugador, :alt_imagen_descripcion, :imagen_camiseta, :alt_imagen_camiseta)";
+        $query = "INSERT INTO jugadores (
+            usuario_fk, 
+            estado_publicacion_fk, 
+            nombre, 
+            apellido, 
+            club, 
+            descripcion, 
+            imagen_jugador, 
+            alt_imagen_jugador, 
+            imagen_camiseta, 
+            alt_imagen_camiseta,
+            precio
+        ) VALUES (
+            :usuario_fk, 
+            :estado_publicacion_fk, 
+            :nombre, 
+            :apellido, 
+            :club, 
+            :descripcion, 
+            :imagen_jugador, 
+            :alt_imagen_jugador, 
+            :imagen_camiseta, 
+            :alt_imagen_camiseta,
+            :precio
+        )";
         $stmt = $db->prepare($query);
         $stmt->execute([
             'usuario_fk'                => $data['usuario_fk'],
@@ -160,6 +184,7 @@ class Jugador
             'alt_imagen_jugador'        => $data['alt_imagen_jugador'],
             'imagen_camiseta'           => $data['imagen_camiseta'],
             'alt_imagen_camiseta'       => $data['alt_imagen_camiseta'],
+            'precio'                    => $data['precio'] ?? 0.0,
         ]);
 
         $jugadorId = $db->lastInsertId();
@@ -194,9 +219,10 @@ class Jugador
                     club                    = :club,
                     descripcion             = :descripcion,
                     imagen_jugador          = :imagen_jugador,
-                    alt_imagen_jugador      = :alt_imagen_jugador
-                    imagen_camiseta         = :imagen_camiseta
-                    alt_imagen_camiseta     = :alt_imagen_camiseta
+                    alt_imagen_jugador      = :alt_imagen_jugador,
+                    imagen_camiseta         = :imagen_camiseta,
+                    alt_imagen_camiseta     = :alt_imagen_camiseta,
+                    precio                  = :precio
                 WHERE jugador_id = :jugador_id";
         $stmt = $db->prepare($query);
         $stmt->execute([
@@ -209,6 +235,7 @@ class Jugador
             'alt_imagen_jugador'        => $data['alt_imagen_jugador'],
             'imagen_camiseta'           => $data['imagen_camiseta'],
             'alt_imagen_camiseta'       => $data['alt_imagen_camiseta'],
+            'precio'                    => $data['precio'] ?? 0.0,
             'jugador_id'                => $id,
         ]);
 
@@ -373,8 +400,11 @@ class Jugador
         return $this->precio;
     }
 
-    public function setPrecio(float $precio): void
+    public function setPrecio(?float $precio): void
     {
+        if ($precio === null) {
+            $precio = 0.0;
+        }
         $this->precio = $precio;
     }
 }

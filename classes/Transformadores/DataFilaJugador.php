@@ -18,6 +18,7 @@ class DataFilaJugador
     protected string $alt_imagen_jugador = "";
     protected string $imagen_camiseta = "";
     protected string $alt_imagen_camiseta = "";
+    protected float $precio = 0.0;  // Added precio property
 
     protected ?string $estado_publicacion_id = null;
     protected ?string $estado = null;
@@ -39,6 +40,7 @@ class DataFilaJugador
             'alt_imagen_jugador' => $this->alt_imagen_jugador,
             'imagen_camiseta' => $this->imagen_camiseta,
             'alt_imagen_camiseta' => $this->alt_imagen_camiseta,
+            'precio' => (float)$this->precio, // Explicitly cast to float
         ]);
 
         if($this->estado_publicacion_id !== null) {
