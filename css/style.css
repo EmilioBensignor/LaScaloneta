@@ -22,6 +22,7 @@ header {
 
 .headerSuperior {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -42,11 +43,13 @@ h1 {
 
 h2 {
     font-size: 1.25rem;
+    font-weight: 600;
     text-align: center;
 }
 
 h3 {
     font-size: 1.125rem;
+    font-weight: 600;
 }
 
 h4 {
@@ -86,6 +89,7 @@ ul li a,
     text-decoration: none;
     color: black;
     font-size: 0.75rem;
+    font-weight: 500;
 }
 
 .iniciar {
@@ -97,26 +101,45 @@ ul li a,
     border-color: #C8E7FF;
 }
 
+main {
+    width: 100%;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
 footer {
     grid-area: footer;
     background-color: #78BAF0;
     padding: 1rem;
 }
 
-/* Home */
-.main-home {
-    width: 100%;
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem;
+.botonPrimario {
+    background-color: #4496E0;
+    box-shadow: 2px 0px 2px #5FC6FF, 0px 0px 2px #5FC6FF, 0px 2px 2px #5FC6FF;
+    border: none;
+    border-radius: 999px;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
+.botonPrimario:hover {
+    background-color: #5FC6FF;
+}
+
+/* Home */
+
 span {
-    font-weight: bolder;
+    font-weight: 500;
 }
 
 .banner {
@@ -132,19 +155,26 @@ span {
     background-repeat: no-repeat;
     background-size: cover;
     border: 3px solid #4496E0;
-    border-radius: 18px;
-    box-shadow: 1.5px 1.5px 1.5px #4496E0;
-    padding: 0.5rem;
+    border-radius: 24px;
+    box-shadow: 0px 4px 2px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
 }
 
 .banner p {
+    width: 100%;
     text-align: center;
-    background-color: #5FC6FF;
-    border-radius: 20px;
+    background-color: #4496E0;
     font-size: 0.625rem;
-    font-weight: bold;
-    color: black;
-    padding: 0.25rem 0.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+}
+
+.banner p:first-of-type {
+    border-radius: 18px 18px 0 0;
+}
+
+.banner p:last-of-type {
+    border-radius: 0 0 18px 18px;
 }
 
 /* Sección Partidos Camisetas Goles */
@@ -191,13 +221,13 @@ span {
     flex-direction: column;
     border: 1.5px solid #4496E0;
     border-radius: 20px;
-    box-shadow: 1.5px 1.5px 1.5px #4496E0;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
     padding: 0.5rem 0.75rem;
 }
 
 .divPartido p:first-child {
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .divPais {
@@ -217,10 +247,6 @@ span {
 
 /* Camisetas en Home */
 
-.mainDetalle {
-    grid-area: main;
-}
-
 .sectionCamisetasHome {
     display: flex;
     flex-direction: column;
@@ -228,7 +254,7 @@ span {
     gap: 1rem;
     border: 2px solid #4496E0;
     border-radius: 20px;
-    box-shadow: 1.5px 1.5px 1.5px #4496E0;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
     padding: 0.75rem;
 }
 
@@ -263,30 +289,6 @@ span {
     justify-content: center;
 }
 
-.irPlantilla a,
-.divContactoHome div a,
-.main-404 ul li a,
-.divButtonForm button {
-    background-color: #4496E0;
-    box-shadow: 1.5px 1.5px 1.5px #5FC6FF;
-    border: none;
-    border-radius: 999px;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.irPlantilla a:hover,
-.divContactoHome div a:hover,
-.main-404 ul li a:hover,
-.divButtonForm button:hover {
-    background-color: #5FC6FF;
-}
-
 /* Goleadores */
 
 .sectionGAA {
@@ -296,7 +298,7 @@ span {
     gap: 1rem;
     border: 2px solid #4496E0;
     border-radius: 20px;
-    box-shadow: 1.5px 1.5px 1.5px #4496E0;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
     text-align: start;
     padding: 1rem;
 }
@@ -333,48 +335,36 @@ span {
     gap: 1rem;
     text-align: center;
     border: 2px solid #4496E0;
-    box-shadow: 1.5px 1.5px 1.5px #4496E0;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
     border-radius: 20px;
     padding: 1rem;
 }
 
 /* Plantilla */
-.sectionExplicación {
+.explicacion {
+    max-width: 370px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     text-align: center;
-    margin: 1.5vw 0 2.5vw 0;
-}
-
-.sectionExplicación p {
-    width: 50%;
-    font-size: 1.5vw;
 }
 
 .sectionJugadores {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 1.5vw;
+    gap: 2rem;
 }
 
 .card {
+    width: 16rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: max-content;
-    padding-bottom: 0.5vw;
-    margin: 2vw;
-    border: 3px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px black;
-}
-
-.card img {
-    width: 16vw;
-    border-bottom: 1px solid #5FC6FF;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 22px;
+    box-shadow: 0px 1px 10px #4496E0, 0px 4px 5px #4496E0, 0px 2px 4px -1px #4496E0;
 }
 
 .card a {
@@ -382,66 +372,96 @@ span {
     color: black;
 }
 
-.card p {
-    width: 12vw;
-    margin-top: 0.5vw;
+.card img {
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.cardBody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.cardBody p {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.cardAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0 0.75rem 0;
 }
 
 /* Detalle */
+.sectionDescripcion,
+.sectionCamiseta {
+    max-width: 400px;
+}
+
 .sectionDescripcion {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 0 3vw;
+    gap: 1rem;
 }
 
 .sectionDescripcion img {
-    width: 20vw;
-    border: 3px solid black;
-    border-radius: 140px;
-    box-shadow: 2px 2px 2px black;
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid #4496E0;
+    border-radius: 999px;
 }
 
 .sectionDescripcion p {
-    width: 30vw;
-    font-size: 1.2vw;
-    margin-left: 4vw;
-}
-
-.sectionCamiseta {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: -7vw 15vw 3vw 0;
-}
-
-.sectionCamiseta p {
-    font-size: 1.4vw;
-    width: 40%;
     text-align: center;
 }
 
+.sectionCamiseta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sectionCamiseta p {
+    text-align: center;
+}
+
+.sectionCamiseta>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .sectionCamiseta img {
-    width: 17vw;
+    width: 10rem;
+}
+
+.sectionCamiseta>div p {
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
 /* Contacto */
-.main-contacto {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.main-contacto form {
+main form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.main-contacto form p {
+main form p {
     text-align: center;
 }
 
@@ -477,7 +497,7 @@ legend {
 
 form label {
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .sectionContacto input,
@@ -507,16 +527,6 @@ form label {
 }
 
 /* Gracias */
-.main-gracias {
-    grid-area: main;
-    height: 65vh;
-}
-
-.main-gracias p {
-    text-align: center;
-    font-size: 1.5vw;
-}
-
 .divMessiSaludo {
     display: flex;
     justify-content: center;
@@ -528,20 +538,6 @@ form label {
 }
 
 /* 404 */
-.main-404 {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.main-404 p {
-    text-align: center;
-    font-size: 0.75rem;
-}
-
 .main-404 img {
     width: 15rem;
 }
@@ -570,16 +566,6 @@ form label {
     width: 25%;
     height: 2vw;
     padding: 0 0.5vw;
-}
-
-.btn {
-    background-color: #4496E0;
-    box-shadow: 2px 2px 2px #78BAF0;
-    border-radius: 20px;
-    border: none;
-    padding: 1vw 2vw;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 button:hover {
@@ -613,18 +599,12 @@ button:hover {
     width: 7rem;
 }
 
-.main-compra-exitosa {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .mensaje-exito {
     text-align: center;
     padding: 2rem;
     background: #f8f9fa;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mensaje-exito h2 {
@@ -639,22 +619,6 @@ button:hover {
     justify-content: center;
 }
 
-.btn-seguir-comprando,
-.btn-volver {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    color: white;
-}
-
-.btn-seguir-comprando {
-    background-color: #007bff;
-}
-
-.btn-volver {
-    background-color: #6c757d;
-}
-
 @media (width >=480px) {
 
     ul li a,
@@ -662,13 +626,10 @@ button:hover {
         font-size: 0.875rem;
     }
 
-    .banner {
-        padding: 1rem;
-    }
-
     .banner p {
         font-size: 0.75rem;
         padding: 0.5rem 0.75rem;
+
     }
 
     .main-404 img {
@@ -678,11 +639,9 @@ button:hover {
 
 @media (width >=660px) {
 
-    .main-home,
     header,
     footer,
-    .main-contacto,
-    .main-404 {
+    main {
         padding: 1.5rem 1.25rem;
     }
 
@@ -706,13 +665,16 @@ button:hover {
     p,
     .banner p,
     .sectionGAA ul li,
-    form label,
-    .main-404 p {
+    form label {
         font-size: 0.875rem;
     }
 
     ul li a,
     .iniciar {
+        font-size: 1rem;
+    }
+
+    .botonPrimario {
         font-size: 1rem;
     }
 
@@ -755,11 +717,34 @@ button:hover {
         gap: 1.5rem;
     }
 
-    .irPlantilla a,
-    .divContactoHome div a,
-    .main-404 ul li a,
-    .divButtonForm button {
-        font-size: 1.125rem;
+    .explicacion {
+        max-width: 430px;
+    }
+
+    .card {
+        width: 18rem;
+    }
+
+    .sectionDescripcion,
+    .sectionCamiseta {
+        max-width: 600px;
+    }
+
+    .sectionDescripcion img {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .sectionCamiseta>div {
+        gap: 1rem;
+    }
+
+    .sectionCamiseta img {
+        width: 12rem;
+    }
+
+    .sectionCamiseta>div p {
+        font-size: 1rem;
     }
 
     .sectionContacto,
@@ -786,16 +771,14 @@ button:hover {
 
 @media (width >=1080px) {
 
-    .main-home,
     header,
     footer,
-    .main-contacto,
-    .main-404 {
-        padding: 2rem 1.5rem;
+    main {
+        padding: 2rem;
     }
 
-    .main-home {
-        gap: 2rem;
+    main {
+        gap: 3rem;
     }
 
     h1 {
@@ -820,8 +803,7 @@ button:hover {
     .sectionGAA ul li,
     .sectionContacto input,
     .sectionContacto select,
-    .divTextarea textarea,
-    .main-404 p {
+    .divTextarea textarea {
         font-size: 1rem;
     }
 
@@ -830,16 +812,37 @@ button:hover {
         font-size: 1.125rem;
     }
 
+    .botonPrimario {
+        font-size: 1.125rem;
+        padding: 0.75rem 1.25rem;
+    }
+
     .banner {
-        height: 25rem;
+        height: 30rem;
+    }
+
+    .banner p {
+        padding: 0.75rem 1rem;
+    }
+
+    .partidos-camisetas-estadisticas {
+        gap: 3rem;
     }
 
     .partidos-camisetas-estadisticas>div {
         max-width: 820px;
     }
 
-    .contacto-home {
-        max-width: max-content;
+    .partidos {
+        gap: 1.5rem;
+    }
+
+    .partidos-camisetas-estadisticas h3 {
+        margin-bottom: 1rem;
+    }
+
+    .pDescriptivo {
+        margin-bottom: 1.5rem;
     }
 
     .divDosPartidos {
@@ -848,7 +851,8 @@ button:hover {
     }
 
     .sectionCamisetasHome {
-        padding: 1rem;
+        gap: 3rem;
+        padding: 2rem;
     }
 
     .gridCamisetas {
@@ -864,15 +868,57 @@ button:hover {
     .sectionGAA {
         flex-direction: row;
         gap: 5rem;
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
-    .irPlantilla a,
-    .divContactoHome div a,
-    .main-404 ul li a,
-    .divButtonForm button {
+    .sectionGAA ul {
+        gap: 1rem;
+    }
+
+    .explicacion {
+        max-width: 500px;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 19rem;
+    }
+
+    .cardBody p {
+        font-size: 1rem;
+    }
+
+    .mainDetalle {
+        gap: 2rem;
+    }
+
+    .sectionDescripcion,
+    .sectionCamiseta {
+        max-width: 1070px;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .sectionCamiseta {
+        margin-top: -4rem;
+    }
+
+    .sectionDescripcion img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .sectionCamiseta img {
+        width: 15rem;
+    }
+
+    .sectionCamiseta>div p {
         font-size: 1.25rem;
-        padding: 0.75rem 1.25rem;
+    }
+
+    .divContactoHome {
+        gap: 1.5rem;
+        padding: 2rem;
     }
 
     form {
@@ -893,10 +939,6 @@ button:hover {
         width: 49%;
     }
 
-    .main-404 {
-        gap: 2rem;
-    }
-
     .main-404 img {
         width: 30rem;
     }
@@ -912,12 +954,15 @@ button:hover {
         margin: 0 auto;
     }
 
-    .main-home,
     header,
     footer,
-    .main-contacto,
-    .main-404 {
+    main {
         padding: 2.5rem 1.5rem;
+    }
+
+    main,
+    .partidos-camisetas-estadisticas {
+        gap: 5rem;
     }
 
     .divLogo img {
@@ -948,33 +993,90 @@ button:hover {
 
     p,
     .banner p,
-    .sectionGAA ul li,
-    .main-404 p {
+    .sectionGAA ul li {
         font-size: 1.125rem;
     }
 
+    .headerSuperior>div,
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li {
+        padding: 0.5rem 1rem;
+    }
+
     .banner {
-        height: 30rem;
-        padding: 1.25rem;
+        height: 35rem;
     }
 
     .banner p {
-        padding: 0.75rem 1rem;
+        padding: 1rem 1.25rem;
     }
 
     .partidos-camisetas-estadisticas>div {
-        max-width: 900px;
+        max-width: 950px;
     }
 
-    .sectionCamisetasHome {
-        padding: 1.25rem;
+    .partidos {
+        gap: 2rem;
+    }
+
+    .gridCamisetas {
+        gap: 4rem;
+    }
+
+    .sectionGAA {
+        gap: 8rem;
     }
 
     .divPais img {
         width: 2rem;
     }
 
-    .main-contacto form {
+    .explicacion {
+        max-width: 550px;
+    }
+
+    .sectionJugadores {
+        gap: 3rem;
+    }
+
+    .cardBody {
+        gap: 0.75rem;
+    }
+
+    .cardBody p {
+        font-size: 1.125rem;
+    }
+
+    .mainDetalle {
+        gap: 3rem;
+    }
+
+    .sectionDescripcion, .sectionCamiseta {
+        max-width: 1200px;
+        gap: 5rem;
+    }
+
+    .sectionCamiseta>div {
+        gap: 1.5rem;
+    }
+
+    .sectionDescripcion img {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .sectionCamiseta img {
+        width: 17rem;
+    }
+
+    .sectionCamiseta>div p {
+        font-size: 1.375rem;
+    }
+
+    main form {
         gap: 2rem;
     }
 

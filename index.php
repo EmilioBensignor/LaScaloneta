@@ -60,7 +60,8 @@ $configurarRuta = $arrayRutas[$ruta];
     <title><?= $configurarRuta['titulo']; ?> | Argentina Campeón</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -73,7 +74,7 @@ $configurarRuta = $arrayRutas[$ruta];
                 </div>
                 <h1>La Scaloneta</h1>
             </div>
-            <?php if(isset($_SESSION['usuario_data'])): ?>
+            <?php if (isset($_SESSION['usuario_data'])): ?>
                 <div class="usuario-info">
                     <?= $_SESSION['usuario_data']['nombre'] . ' ' . $_SESSION['usuario_data']['apellido']; ?>
                     <a href="acciones/auth/cerrar-sesion.php">Cerrar Sesión</a>
@@ -87,8 +88,9 @@ $configurarRuta = $arrayRutas[$ruta];
                 <li><a href="index.php?s=home">Home</a></li>
                 <li><a href="index.php?s=plantilla">Plantel</a></li>
                 <li><a href="index.php?s=contacto">Contacto</a></li>
-                <?php if(isset($_SESSION['usuario_data'])): ?>
-                    <li><a href="index.php?s=carrito">Carrito (<?=(new App\Modelos\Carrito())->getCantidadItems();?>)</a></li>
+                <?php if (isset($_SESSION['usuario_data'])): ?>
+                    <li><a href="index.php?s=carrito">Carrito (<?= (new App\Modelos\Carrito())->getCantidadItems(); ?>)</a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </nav>

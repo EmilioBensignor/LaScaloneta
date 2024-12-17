@@ -32,7 +32,7 @@
                 <textarea name="comentarios" id="comentarios" rows="7"></textarea>
             </div>
             <div class="divButtonForm">
-                <button type="submit">Enviar</button>
+                <button type="submit" class="botonPrimario">Enviar</button>
             </div>
         </fieldset>
     </form>

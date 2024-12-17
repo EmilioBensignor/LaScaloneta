@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class="irPlantilla">
-                    <a href="index.php?s=plantilla">Ver más camisetas</a>
+                    <a class="botonPrimario" href="index.php?s=plantilla">Ver más camisetas</a>
                 </div>
             </section>
         </div>
@@ -201,7 +201,7 @@
             <p>¿Querés saber cuándo va a llegar la nueva edición de camisetas?</p>
             <p>Completá el formulario y se parte de la familia Scaloneta</p>
             <div>
-                <a href="index.php?s=contacto">Formulario</a>
+                <a class="botonPrimario" href="index.php?s=contacto">Formulario</a>
             </div>
         </div>
     </section>

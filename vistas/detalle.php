@@ -24,7 +24,7 @@
                     <button type="submit">Agregar al Carrito</button>
                 </form>
             <?php else: ?>
-                <a href="index.php?s=iniciar-sesion" class="btn-login">Iniciá sesión para comprar</a>
+                <a href="index.php?s=iniciar-sesion" class="botonPrimario">Iniciá sesión para comprar</a>
             <?php endif; ?>
         </div>
     </section>
