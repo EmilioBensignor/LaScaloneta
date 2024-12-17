@@ -66,6 +66,10 @@ nav {
     padding-top: 0.5rem;
 }
 
+nav ul {
+    flex-wrap: wrap;
+}
+
 ul {
     display: flex;
     justify-content: center;
@@ -93,7 +97,8 @@ ul li a,
 }
 
 .iniciar {
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 1px;
     transition: all 0.3s;
 }
 
@@ -117,8 +122,10 @@ footer {
     padding: 1rem;
 }
 
-.botonPrimario {
-    background-color: #4496E0;
+.botonPrimario, .swal2-confirm, .swal2-cancel {
+    display: flex;
+    align-items: center;
+    background: #4496E0;
     box-shadow: 2px 0px 2px #5FC6FF, 0px 0px 2px #5FC6FF, 0px 2px 2px #5FC6FF;
     border: none;
     border-radius: 999px;
@@ -128,12 +135,24 @@ footer {
     color: black;
     font-size: 0.875rem;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.botonPrimario:hover {
-    background-color: #5FC6FF;
+.swal2-cancel {
+    background: transparent;
+    border: 3px solid #4496E0;
+    color: #4496E0;
+}
+
+.botonPrimario:hover, .swal2-confirm:hover {
+    background: #5FC6FF;
+}
+
+.swal2-cancel:hover {
+    background: #4496E0;
+    color: white;
 }
 
 /* Home */
@@ -455,6 +474,7 @@ span {
 
 /* Contacto */
 main form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -500,18 +520,14 @@ form label {
     font-weight: 500;
 }
 
-.sectionContacto input,
-.sectionContacto select,
-.divTextarea textarea {
+input,
+select,
+textarea {
     width: 100%;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 12px;
-}
-
-.divTextarea textarea {
-    resize: none;
 }
 
 .divTextarea {
@@ -521,23 +537,34 @@ form label {
     gap: 0.3rem;
 }
 
+textarea {
+    resize: none;
+}
+
 .divButtonForm {
     display: flex;
     justify-content: end;
 }
 
 /* Gracias */
+.mainGracias p {
+    text-align: center;
+}
+
 .divMessiSaludo {
     display: flex;
     justify-content: center;
-    margin: 2vw 0;
 }
 
 .divMessiSaludo img {
-    width: 15vw;
+    width: 10rem;
 }
 
 /* 404 */
+.main-404 p {
+    text-align: center;
+}
+
 .main-404 img {
     width: 15rem;
 }
@@ -545,75 +572,140 @@ form label {
 /* ADMIN */
 
 /* Iniciar Sesion */
-.inicar-sesion {
-    padding: 2vw;
+.iniciarSesion {
+    padding: 1rem;
 }
 
-.inicar-sesion h1 {
-    font-size: 2vw;
-    margin-left: 0;
-    margin-bottom: 1.5vw;
-    text-align: center;
-}
 
-.form-fila {
+.iniciarSesion, .formContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1vw;
+    align-items: center;
+    gap: 1rem;
 }
 
-.form-fila input {
-    width: 25%;
-    height: 2vw;
-    padding: 0 0.5vw;
+.formFila {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-button:hover {
-    background-color: #78BAF0;
+.registrate {
+    color: #2a6ba0;
+    font-weight: 600;
 }
 
 .imgPlantilla {
     width: 5rem;
 }
 
-.usuario-info {
+/* Registro */
+
+.registro {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.usuario-info a {
-    color: #fff;
-    /* text-decoration: none; */
-    font-size: 0.9em;
-    padding: 0.5em 1em;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+/* Cerrar Sesion */
+
+.cerrarSesion .botonPrimario {
+    background-color: #C8E7FF;
 }
 
-.usuario-info a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+.cerrarSesion .botonPrimario:hover {
+    background-color: #2a6ba0;
+    color: white;
+}
+
+/* Carrito */
+.sectionCarrito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.carritoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.itemCarrito {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .imgItemCarrito {
     width: 7rem;
 }
 
-.mensaje-exito {
-    text-align: center;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.carritoTotal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.mensaje-exito h2 {
-    color: #28a745;
-    margin-bottom: 1rem;
+.carritoTotal p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Compra */
+
+.compra {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.compra > div:first-of-type {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.compra > div:first-of-type p {
+    font-weight: 500;
+}
+
+.mensajeExito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
 }
 
 .acciones {
-    margin-top: 2rem;
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -672,6 +764,11 @@ button:hover {
     ul li a,
     .iniciar {
         font-size: 1rem;
+    }
+
+    .iniciar {
+        border-width: 3px;
+        padding-bottom: 2px;
     }
 
     .botonPrimario {
@@ -757,11 +854,27 @@ button:hover {
         gap: 0.625rem;
     }
 
-    .sectionContacto input,
-    .sectionContacto select,
-    .divTextarea textarea {
+    input,
+    select,
+    textarea {
         font-size: 0.875rem;
         padding: 0.5rem 1rem;
+    }
+
+    .sectionCarrito {
+        gap: 3rem;
+    }
+
+    .itemCarrito {
+        width: 18rem;
+    }
+
+    .itemInfo {
+        gap: 0.5rem;
+    }
+
+    .divMessiSaludo img {
+        width: 15rem;
     }
 
     .main-404 img {
@@ -801,9 +914,9 @@ button:hover {
     p,
     .banner p,
     .sectionGAA ul li,
-    .sectionContacto input,
-    .sectionContacto select,
-    .divTextarea textarea {
+    input,
+    select,
+    textarea {
         font-size: 1rem;
     }
 
@@ -888,7 +1001,7 @@ button:hover {
         font-size: 1rem;
     }
 
-    .mainDetalle {
+    .mainDetalle, .mainGracias {
         gap: 2rem;
     }
 
@@ -921,13 +1034,18 @@ button:hover {
         padding: 2rem;
     }
 
-    form {
+    main form, .compra {
         width: 100%;
         max-width: 840px;
+        gap: 2rem;
     }
 
     form label {
         font-size: 1rem;
+    }
+
+    .formContainer {
+        flex-direction: row;
     }
 
     .sectionContacto {
@@ -937,6 +1055,42 @@ button:hover {
 
     .sectionContacto>div {
         width: 49%;
+    }
+
+    .registro {
+        gap: 2rem;
+    }
+
+    .sectionCarrito {
+        gap: 5rem;
+    }
+
+    .itemCarrito {
+        width: 20rem;
+    }
+
+    .imgItemCarrito {
+        width: 9rem;
+    }
+
+    .itemInfo {
+        gap: 0.75rem;
+    }
+
+    .carritoTotal p {
+        font-size: 1.75rem;
+    }
+
+    .divMessiSaludo img {
+        width: 20rem;
+    }
+
+    .mensajeExito {
+        gap: 2rem;
+    }
+
+    .main-404 {
+        gap: 2rem;
     }
 
     .main-404 img {
@@ -1050,7 +1204,7 @@ button:hover {
         font-size: 1.125rem;
     }
 
-    .mainDetalle {
+    .mainDetalle, .mainGracias {
         gap: 3rem;
     }
 
@@ -1076,12 +1230,16 @@ button:hover {
         font-size: 1.375rem;
     }
 
-    main form {
+    main form, .compra {
         gap: 2rem;
     }
 
     form label {
         font-size: 1.125rem;
+    }
+
+    .carritoTotal {
+        gap: 1.5rem;
     }
 
     .main-404 img {

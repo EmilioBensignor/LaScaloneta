@@ -1,7 +1,7 @@
 <?php
 $nombre = $_POST['nombre'];
 ?>
-<main class="main-gracias">
+<main class="mainGracias">
     <h2>¡Gracias <?=$nombre?> por ser parte de la Scaloneta!</h2>
     <p>
         Empezarás a recibir nuestros mails a la brevedad

@@ -7,13 +7,13 @@ if(!isset($_SESSION['mensaje_exitoso'])) {
 $mensaje = $_SESSION['mensaje_exitoso'];
 unset($_SESSION['mensaje_exitoso']);
 ?>
-<main class="main-compra-exitosa">
-    <section class="mensaje-exito">
+<main>
+    <section class="mensajeExito">
         <h2>¡Gracias por tu compra!</h2>
         <p><?=$mensaje;?></p>
         <div class="acciones">
-            <a href="index.php?s=plantilla" class="btn-seguir-comprando">Seguir comprando</a>
-            <a href="index.php?s=home" class="btn-volver">Volver al inicio</a>
+            <a href="index.php?s=plantilla" class="botonPrimario">Seguir comprando</a>
+            <a href="index.php?s=home" class="botonPrimario swal2-cancel">Volver al inicio</a>
         </div>
     </section>
 </main>

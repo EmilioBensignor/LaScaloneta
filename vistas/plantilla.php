@@ -30,7 +30,7 @@ $jugadores = $jugador->publicados();
                     <?php if (isset($_SESSION['usuario_data'])): ?>
                         <form action="acciones/carrito/agregar.php" method="post" class="formAgregarCarrito">
                             <input type="hidden" name="jugador_id" value="<?= $jugador->getNumeroCamiseta(); ?>">
-                            <button type="submit" class="boton-primario">Agregar al carrito</button>
+                            <button type="submit" class="botonPrimario">Agregar al carrito</button>
                         </form>
                     <?php else: ?>
                         <a href="index.php?s=iniciar-sesion" class="botonPrimario">Iniciá sesión para comprar</a>
