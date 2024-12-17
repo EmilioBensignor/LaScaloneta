@@ -43,7 +43,7 @@ $arrayRutas = [
     ],
 ];
 
-if(!isset($arrayRutas[$ruta])) {
+if (!isset($arrayRutas[$ruta])) {
     $ruta = '404';
 }
 
@@ -55,55 +55,57 @@ $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../favicon.png">
-    <title><?= $configurarRuta['titulo'];?> | Panel de Administración de La Scaloneta</title>
+    <title><?= $configurarRuta['titulo']; ?> | Panel de Administración de La Scaloneta</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <header>
-        <p>Panel de Administración</p>
+        <div class="headerAdmin">
+            <p>Panel de Administración</p>
+            <a href="../acciones/auth/cerrar-sesion.php" class="iniciar">
+                <?= $_SESSION['usuario_data']['email']; ?> (Cerrar Sesión)
+            </a>
+        </div>
         <nav>
             <div>
                 <?php
-                if($autenticacion->estaAutenticado()):
-                ?>
-                <ul>
-                    <li><a href="index.php?s=home">Tablero</a></li>
-                    <li><a href="index.php?s=plantilla">Plantilla</a></li>
-                    <li>
-                        <a href="../acciones/auth/cerrar-sesion.php">
-                            <?= $_SESSION['usuario_data']['email'];?> (Cerrar Sesión)
-                        </a>
-                    </li>
-                </ul>
-                <?php
+                if ($autenticacion->estaAutenticado()):
+                    ?>
+                    <ul>
+                        <li><a href="index.php?s=home">Tablero</a></li>
+                        <li><a href="index.php?s=plantilla">Plantilla</a></li>
+                    </ul>
+                    <?php
                 endif;
                 ?>
             </div>
         </nav>
     </header>
     <div>
-    <?php
-    if(isset($_SESSION['mensajeExito'])):
-    ?>
-        <div class="msg-success"><?= $_SESSION['mensajeExito'];?></div>
-    <?php
-        unset($_SESSION['mensajeExito']);
-    endif;
-    ?>
-    <?php
-    if(isset($_SESSION['mensajeError'])):
-    ?>
-        <div class="msg-error"><?= $_SESSION['mensajeError'];?></div>
-    <?php
-        unset($_SESSION['mensajeError']);
-    endif;
-    ?>
+        <?php
+        if (isset($_SESSION['mensajeExito'])):
+            ?>
+            <div class="msg-success"><?= $_SESSION['mensajeExito']; ?></div>
+            <?php
+            unset($_SESSION['mensajeExito']);
+        endif;
+        ?>
+        <?php
+        if (isset($_SESSION['mensajeError'])):
+            ?>
+            <div class="msg-error"><?= $_SESSION['mensajeError']; ?></div>
+            <?php
+            unset($_SESSION['mensajeError']);
+        endif;
+        ?>
         <?php
         require __DIR__ . '/vistas/' . $ruta . '.php';
         ?>
@@ -112,4 +114,5 @@ $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
         <p>Lara Crupnicoff - Da Vinci - 2023</p>
     </footer>
 </body>
+
 </html>
