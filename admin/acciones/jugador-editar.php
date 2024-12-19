@@ -91,8 +91,8 @@ try {
         'precio'                => (float)$precio,
     ]);
 
-    $_SESSION['mensajeExito'] = "El jugador <b>" . $nombre . ' ' . $apellido . "</b> se editó exitosamente.";
-    header("Location: ../index.php?s=plantilla");
+    // Replace success message with URL parameters
+    header("Location: ../index.php?s=plantilla&success=edited&nombre=" . urlencode($nombre) . "&apellido=" . urlencode($apellido));
     exit;
 } catch(Exception $e) {
     $_SESSION['mensajeError'] = "Ocurrió un error inesperado al tratar de editar el jugador. Por favor, probá de nuevo más tarde.";

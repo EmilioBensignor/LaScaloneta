@@ -1,6 +1,7 @@
 <?php
 $jugadores = (new \App\Modelos\Jugador())->todos();
 ?>
+
 <main>
     <section>
         <h1>Administración de Jugadores</h1>
@@ -72,3 +73,39 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
         </table>
     </section>
 </main>
+
+<!-- Add this in the head section or before closing body -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if(isset($_GET['success']) && $_GET['success'] === 'created'): ?>
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: '¡Jugador agregado!',
+        text: 'El jugador <?= urldecode($_GET['nombre'] ?? ''); ?> <?= urldecode($_GET['apellido'] ?? ''); ?> se ha creado exitosamente',
+        confirmButtonColor: '#28a745'
+    });
+</script>
+<?php endif; ?>
+
+<?php if(isset($_GET['success']) && $_GET['success'] === 'edited'): ?>
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: '¡Jugador editado!',
+        text: 'El jugador <?= urldecode($_GET['nombre'] ?? ''); ?> <?= urldecode($_GET['apellido'] ?? ''); ?> se ha editado exitosamente',
+        confirmButtonColor: '#28a745'
+    });
+</script>
+<?php endif; ?>
+
+<?php if(isset($_GET['success']) && $_GET['success'] === 'deleted'): ?>
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: '¡Jugador eliminado!',
+        text: 'El jugador <?= urldecode($_GET['nombre'] ?? ''); ?> <?= urldecode($_GET['apellido'] ?? ''); ?> se ha eliminado exitosamente',
+        confirmButtonColor: '#28a745'
+    });
+</script>
+<?php endif; ?>

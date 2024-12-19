@@ -33,21 +33,22 @@ try {
     }
     
     // Guardamos el nombre completo antes de eliminar
-    $nombreCompleto = $jugadorExistente->getNombre() . ' ' . $jugadorExistente->getApellido();
+    $nombre = $jugadorExistente->getNombre();
+    $apellido = $jugadorExistente->getApellido();
     
     // Intentamos eliminar
     $jugador->eliminar($id);
     
-    $_SESSION['mensajeExito'] = "El jugador " . $nombreCompleto . " se eliminó exitosamente.";
+    header("Location: ../index.php?s=plantilla&success=deleted&nombre=" . urlencode($nombre) . "&apellido=" . urlencode($apellido));
+    exit;
     
 } catch(\PDOException $e) {
     error_log("Error de BD al eliminar jugador: " . $e->getMessage());
-    $_SESSION['mensajeError'] = "Error de base de datos al eliminar el jugador. Por favor, intenta nuevamente.";
+    header("Location: ../index.php?s=plantilla&error=database");
+    exit;
     
 } catch(\Exception $e) {
     error_log("Error general al eliminar jugador: " . $e->getMessage());
-    $_SESSION['mensajeError'] = "Error al eliminar el jugador: " . $e->getMessage();
+    header("Location: ../index.php?s=plantilla&error=general");
+    exit;
 }
-
-header("Location: ../index.php?s=plantilla");
-exit;

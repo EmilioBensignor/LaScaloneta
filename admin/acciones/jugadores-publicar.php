@@ -111,8 +111,7 @@ try {
         'precio'                => (float)$precio,  // Add precio to the data array
     ]);
 
-    $_SESSION['mensajeExito'] = "El jugador <b>" . $nombre . " " . $apellido . "</b> se creó exitosamente.";
-    header("Location: ../index.php?s=plantilla");
+    header("Location: ../index.php?s=plantilla&success=created&nombre=" . urlencode($nombre) . "&apellido=" . urlencode($apellido));
     exit;
 } catch(Exception $e) {
     $_SESSION['mensajeError'] = "Ocurrió un error inesperado al tratar de crear el jugador. Por favor, probá de nuevo más tarde.";
