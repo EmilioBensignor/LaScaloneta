@@ -37,6 +37,14 @@ $arrayRutas = [
         'titulo' => 'Ver Jugador',
         'requiereAutenticacion' => true,
     ],
+    'usuarios' => [
+        'titulo' => 'Administración de Usuarios',
+        'requiereAutenticacion' => true,
+    ],
+    'usuario-compras' => [
+        'titulo' => 'Compras del Usuario',
+        'requiereAutenticacion' => true,
+    ],
     '404' => [
         'titulo' => 'Página no Encontrada',
         'requiereAutenticacion' => true,
@@ -82,6 +90,7 @@ $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
                     <ul>
                         <li><a href="index.php?s=home">Tablero</a></li>
                         <li><a href="index.php?s=plantilla">Plantilla</a></li>
+                        <li><a href="index.php?s=usuarios">Usuarios</a></li>
                     </ul>
                     <?php
                 endif;
