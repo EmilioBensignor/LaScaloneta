@@ -34,6 +34,9 @@ $arrayRutas = [
     'compra-exitosa' => [
         'titulo' => 'Compra Exitosa',
     ],
+    'mi-perfil' => [
+        'titulo' => 'Mi Perfil',
+    ],
     '404' => [
         'titulo' => 'Página no encontrada',
     ],
@@ -89,8 +92,8 @@ $configurarRuta = $arrayRutas[$ruta];
                 <li><a href="index.php?s=plantilla">Plantel</a></li>
                 <li><a href="index.php?s=contacto">Contacto</a></li>
                 <?php if (isset($_SESSION['usuario_data'])): ?>
-                    <li><a href="index.php?s=carrito">Carrito (<?= (new App\Modelos\Carrito())->getCantidadItems(); ?>)</a>
-                    </li>
+                    <li><a href="index.php?s=carrito">Carrito (<?= (new App\Modelos\Carrito())->getCantidadItems(); ?>)</a></li>
+                    <li><a href="index.php?s=mi-perfil">Mi Perfil</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

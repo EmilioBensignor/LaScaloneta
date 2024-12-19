@@ -115,7 +115,7 @@ $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
         ?>
     </div>
     <footer>
-        <p>Lara Crupnicoff - Da Vinci - 2023</p>
+        <p>Lara Crupnicoff - Da Vinci - 2024</p>
     </footer>
 </body>
 

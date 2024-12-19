@@ -95,6 +95,28 @@ class Usuario
         return $stmt->fetchColumn() > 0;
     }
 
+    public function obtenerCompras(): array
+    {
+        try {
+            $db = (new DBConexion())->getDB();
+            $query = "SELECT c.*, GROUP_CONCAT(CONCAT(dc.cantidad, 'x ', j.apellido) SEPARATOR ', ') as items 
+                    FROM compras c 
+                    LEFT JOIN detalle_compras dc ON c.compra_id = dc.compra_fk
+                    LEFT JOIN jugadores j ON dc.jugador_fk = j.jugador_id
+                    WHERE c.usuario_fk = :usuario_id
+                    GROUP BY c.compra_id
+                    ORDER BY c.fecha_compra DESC";
+            
+            $stmt = $db->prepare($query);
+            $stmt->execute(['usuario_id' => $this->usuario_id]);
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            // Si hay algún error, retornamos un array vacío
+            return [];
+        }
+    }
+
     public function getUsuarioId(): int
     {
         return $this->usuario_id;
