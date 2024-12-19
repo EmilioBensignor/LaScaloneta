@@ -26,7 +26,7 @@
                         <input type="number" name="cantidad" value="1" min="1" class="input-cantidad" readonly>
                         <button type="button" class="btn-cantidad" data-action="increase">+</button>
                     </div>
-                    <button type="submit">Agregar al Carrito</button>
+                    <button type="submit" class="botonPrimario">Agregar al Carrito</button>
                 </form>
             <?php else: ?>
                 <a href="index.php?s=iniciar-sesion" class="botonPrimario">Iniciá sesión para comprar</a>

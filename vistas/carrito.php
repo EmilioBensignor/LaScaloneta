@@ -19,8 +19,7 @@ $items = $carrito->getItems();
                         continue;
                     ?>
                     <article class="itemCarrito">
-                        <img src="<?= "images/" . $item->getImagenCamiseta(); ?>" alt="<?= $item->getAltImagenCamiseta(); ?>"
-                            class="imgItemCarrito">
+                        <img src="<?= "images/" . $item->getImagenCamiseta(); ?>" alt="<?= $item->getAltImagenCamiseta(); ?>">
                         <div class="itemInfo">
                             <h3><?= $item->getNombre(); ?> <?= $item->getApellido(); ?></h3>
                             <div class="cantidad-container">

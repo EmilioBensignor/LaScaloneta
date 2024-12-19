@@ -1,10 +1,9 @@
 <?php
-// Obtener el término de búsqueda
+
 $searchTerm = $_GET['search'] ?? '';
 
 $jugadores = (new \App\Modelos\Jugador())->todos();
 
-// Filtrar jugadores si hay término de búsqueda
 if (!empty($searchTerm)) {
     $jugadores = array_filter($jugadores, function($jugador) use ($searchTerm) {
         $searchLower = strtolower($searchTerm);
@@ -23,7 +22,6 @@ if (!empty($searchTerm)) {
             <a href="index.php?s=jugador-nuevo" class="botonPrimario">Publicar un nuevo Jugador</a>
         </div>
 
-        <!-- Agregar formulario de búsqueda -->
         <form class="buscador-form" method="get" action="index.php">
             <input type="hidden" name="s" value="plantilla">
             <div class="buscador-container">
