@@ -25,11 +25,11 @@ $arrayRutas = [
         'titulo' => 'Publicar Nuevo Jugador',
         'requiereAutenticacion' => true,
     ],
-    'jugadores-editar' => [
+    'jugador-editar' => [         // Changed from 'jugadores-editar'
         'titulo' => 'Editar un Jugador',
         'requiereAutenticacion' => true,
     ],
-    'jugadores-eliminar' => [
+    'jugador-eliminar' => [       // Changed for consistency
         'titulo' => 'Confirmación para Eliminar un Jugador',
         'requiereAutenticacion' => true,
     ],

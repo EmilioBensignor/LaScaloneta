@@ -12,17 +12,18 @@ if(!$autenticacion->estaAutenticado()) {
     exit;
 }
 
-$id                     = $_GET['jugador_id'];
+$id                     = $_GET['id'];
 $nombre                 = $_POST['nombre'];
 $apellido               = $_POST['apellido'];
 $club                   = $_POST['club'];
 $descripcion            = $_POST['descripcion'];
+$precio                 = $_POST['precio'] ?? 0.00;
 $imagen_jugador         = $_FILES['imagen_jugador'];
-$alt_imagen_jugador     = $_POST['alt_imagen_jugador'];
+$alt_imagen_jugador     = $_POST['imagen_jugador_alt'];
 $imagen_camiseta        = $_FILES['imagen_camiseta'];
-$alt_imagen_camiseta    = $_POST['alt_imagen_camiseta'];
+$alt_imagen_camiseta    = $_POST['imagen_camiseta_alt'];
 $estado_publicacion_fk  = $_POST['estado_publicacion_fk'];
-$posiciones             = $_POST['posiciones'];
+$posiciones             = $_POST['posiciones'] ?? [];
 
 $errores = [];
 
@@ -48,41 +49,34 @@ if(empty($descripcion)) {
     $errores['descripcion'] = "La descripcion no debe estar vacía.";
 }
 
+if(!is_numeric($precio) || $precio < 0) {
+    $errores['precio'] = "El precio debe ser un número positivo.";
+}
+
 if(count($errores) > 0) {
     $_SESSION['mensajeError'] = "Hay errores en el formulario. Por favor, revisá los campos y probá de nuevo.";
     $_SESSION['errores'] = $errores;
     $_SESSION['dataForm'] = $_POST;
-    $_SESSION['dataForm']['posiciones'] = $posiciones;
 
-    header("Location: ../index.php?s=jugadores-editar&id=" . $id);
+    header("Location: ../index.php?s=jugador-editar&id=" . $id);
     exit;
-}
-
-if(!empty($imagen_jugador['tmp_name'])) {
-    $nombreImagenJugador = date('YmdHis') . "_" . $imagen_jugador['name'];
-
-    move_uploaded_file($imagen_jugador['tmp_name'], IMGS_PATH . '/' . $nombreImagenJugador);
-
-    copy(
-        IMGS_PATH . '/' . $nombreImagenJugador,
-        IMGS_PATH . '/big-' . $nombreImagenJugador,
-    );
-}
-
-if(!empty($imagen_camiseta['tmp_name'])) {
-    $nombreImagenCamiseta = date('YmdHis') . "_" . $imagen_camiseta['name'];
-
-    move_uploaded_file($imagen_camiseta['tmp_name'], IMGS_PATH . '/' . $nombreImagenCamiseta);
-
-    copy(
-        IMGS_PATH . '/' . $nombreImagenCamiseta,
-        IMGS_PATH . '/big' . $nombreImagenCamiseta,
-    );
 }
 
 try {
     $jugador = (new Jugador())->porId($id);
 
+    // Process new images if uploaded
+    if(!empty($imagen_jugador['tmp_name'])) {
+        $nombreImagenJugador = date('YmdHis') . "_" . $imagen_jugador['name'];
+        move_uploaded_file($imagen_jugador['tmp_name'], IMGS_PATH . '/' . $nombreImagenJugador);
+    }
+
+    if(!empty($imagen_camiseta['tmp_name'])) {
+        $nombreImagenCamiseta = date('YmdHis') . "_" . $imagen_camiseta['name'];
+        move_uploaded_file($imagen_camiseta['tmp_name'], IMGS_PATH . '/' . $nombreImagenCamiseta);
+    }
+
+    // Update player data
     (new Jugador())->editar($id, [
         'estado_publicacion_fk' => $estado_publicacion_fk,
         'nombre'                => $nombre,
@@ -94,6 +88,7 @@ try {
         'imagen_camiseta'       => $nombreImagenCamiseta ?? $jugador->getImagenCamiseta(),
         'alt_imagen_camiseta'   => $alt_imagen_camiseta,
         'posiciones'            => $posiciones,
+        'precio'                => (float)$precio,
     ]);
 
     $_SESSION['mensajeExito'] = "El jugador <b>" . $nombre . ' ' . $apellido . "</b> se editó exitosamente.";
@@ -102,6 +97,6 @@ try {
 } catch(Exception $e) {
     $_SESSION['mensajeError'] = "Ocurrió un error inesperado al tratar de editar el jugador. Por favor, probá de nuevo más tarde.";
     $_SESSION['dataForm'] = $_POST;
-    header("Location: ../index.php?s=jugadores-editar&id=" . $id);
+    header("Location: ../index.php?s=jugador-editar&id=" . $id);
     exit;
 }

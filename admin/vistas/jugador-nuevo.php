@@ -73,27 +73,27 @@ $posiciones = (new Posicion())->todas();
                 ?>
             </div>
             <div>
-                <label for="camiseta">Numero Camiseta</label>
+                <label for="numero_camiseta">Numero Camiseta</label>
                 <input
                     type="number"
-                    id="camiseta"
-                    name="camiseta"
+                    id="numero_camiseta"
+                    name="numero_camiseta"
                     class="form-control"
-                    value="<?= $dataForm['camiseta'] ?? '';?>"
-                    aria-describedby="help-camiseta <?= isset($errores['camiseta']) ? 'error-camiseta' : '';?>"
+                    value="<?= $dataForm['numero_camiseta'] ?? '';?>"
+                    aria-describedby="help-numero_camiseta <?= isset($errores['numero_camiseta']) ? 'error-numero_camiseta' : '';?>"
                     <?php
-                    if(isset($errores['camiseta'])):
+                    if(isset($errores['numero_camiseta'])):
                     ?>
                     aria-invalid="true"
                     <?php
                     endif;
                     ?>
                 >
-                <div class="form-help" id="help-camiseta">Debe ser un numero de camiseta no existente.</div>
+                <div class="form-help" id="help-numero_camiseta">Debe ser un numero de camiseta entre 1 y 99.</div>
                 <?php
-                if(isset($errores['camiseta'])):
+                if(isset($errores['numero_camiseta'])):
                 ?>
-                    <div class="msg-error" id="error-camiseta"><?= $errores['camiseta'];?></div>
+                    <div class="msg-error" id="error-numero_camiseta"><?= $errores['numero_camiseta'];?></div>
                 <?php
                 endif;
                 ?>
@@ -174,6 +174,25 @@ $posiciones = (new Posicion())->todas();
                     class="form-control"
                     value="<?= $dataForm['alt_imagen_camiseta'] ?? '';?>"
                 >
+            </div>
+            <div class="form-fila">
+                <label for="precio">Precio</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    id="precio"
+                    name="precio"
+                    class="form-control"
+                    value="<?= $dataForm['precio'] ?? '0.00';?>"
+                    aria-describedby="help-precio <?= isset($errores['precio']) ? 'error-precio' : '';?>"
+                    <?php if(isset($errores['precio'])): ?>
+                    aria-invalid="true"
+                    <?php endif; ?>
+                >
+                <div class="form-help" id="help-precio">Ingrese el precio en pesos argentinos (0.00)</div>
+                <?php if(isset($errores['precio'])): ?>
+                    <div class="msg-error" id="error-precio"><?= $errores['precio'];?></div>
+                <?php endif; ?>
             </div>
             <div class="form-fila">
                 <label for="estado_publicacion_fk">Estado de Publicación</label>

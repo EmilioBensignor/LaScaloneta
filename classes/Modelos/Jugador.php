@@ -251,12 +251,45 @@ class Jugador
 
     public function eliminar(int $id): void
     {
-        $this->desasociarPosiciones($id);
         $db = (new DBConexion())->getDB();
-        $query = "DELETE FROM jugadores
-                WHERE jugador_id = ?";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$id]);
+        
+        try {
+            $db->beginTransaction();
+            
+            // Primero verificamos si el jugador existe
+            $query = "SELECT jugador_id FROM jugadores WHERE jugador_id = ?";
+            $stmt = $db->prepare($query);
+            $stmt->execute([$id]);
+            if (!$stmt->fetch()) {
+                throw new \Exception("El jugador no existe.");
+            }
+            
+            // Eliminamos registros relacionados en detalle_compras
+            $query = "DELETE FROM detalle_compras WHERE jugador_fk = ?";
+            $stmt = $db->prepare($query);
+            $stmt->execute([$id]);
+            
+            // Eliminamos relaciones en jugadores_tienen_posiciones
+            $query = "DELETE FROM jugadores_tienen_posiciones WHERE jugador_fk = ?";
+            $stmt = $db->prepare($query);
+            $stmt->execute([$id]);
+            
+            // Finalmente eliminamos el jugador
+            $query = "DELETE FROM jugadores WHERE jugador_id = ?";
+            $stmt = $db->prepare($query);
+            $stmt->execute([$id]);
+            
+            $db->commit();
+            
+        } catch (\PDOException $e) {
+            $db->rollBack();
+            error_log("Error al eliminar jugador ID {$id}: " . $e->getMessage());
+            throw new \Exception("Error en la base de datos al eliminar el jugador: " . $e->getMessage());
+        } catch (\Exception $e) {
+            $db->rollBack();
+            error_log("Error general al eliminar jugador ID {$id}: " . $e->getMessage());
+            throw $e;
+        }
     }
 
     public function desasociarPosiciones(int $id) : void

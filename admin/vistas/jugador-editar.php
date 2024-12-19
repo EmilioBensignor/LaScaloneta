@@ -26,9 +26,9 @@ $posiciones = (new Posicion())->todas();
 ?>
 <main>
     <section>
-        <h1>Editar el Jugador "<b><?=$jugador->getNombre(); ?><?=$jugador->getApellido();?></b>"</h1>
+        <h1>Editar el Jugador "<b><?=$jugador->getNombre(); ?> <?=$jugador->getApellido();?></b>"</h1>
 
-        <form action="acciones/jugadores-editar.php?id=<?= $jugador->getNumeroCamiseta();?>" method="post" enctype="multipart/form-data">
+        <form action="acciones/jugador-editar.php?id=<?= $jugador->getJugadorId();?>" method="post" enctype="multipart/form-data">
             <div class="form-fila">
                 <label for="nombre">Nombre</label>
                 <input
@@ -62,6 +62,7 @@ $posiciones = (new Posicion())->todas();
                     id="apellido"
                     name="apellido"
                     class="form-control"
+                    value="<?= $dataForm['apellido'] ?? $jugador->getApellido();?>"
                     <?php
                     if(isset($errores['apellido'])):
                     ?>
@@ -70,7 +71,7 @@ $posiciones = (new Posicion())->todas();
                     <?php
                     endif;
                     ?>
-                ><?= $dataForm['apellido'] ?? $jugador->getApellido();?></input>
+                >
                 <?php
                 if(isset($errores['apellido'])):
                 ?>
@@ -86,6 +87,7 @@ $posiciones = (new Posicion())->todas();
                     id="club"
                     name="club"
                     class="form-control"
+                    value="<?= $dataForm['club'] ?? $jugador->getClub();?>"
                     <?php
                     if(isset($errores['club'])):
                     ?>
@@ -94,11 +96,37 @@ $posiciones = (new Posicion())->todas();
                     <?php
                     endif;
                     ?>
-                ><?= $dataForm['club'] ?? $jugador->getClub();?></input>
+                >
                 <?php
                 if(isset($errores['club'])):
                 ?>
                     <div class="msg-error" id="error-club"><?= $errores['club'];?></div>
+                <?php
+                endif;
+                ?>
+            </div>
+            <div class="form-fila">
+                <label for="precio">Precio</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    id="precio"
+                    name="precio"
+                    class="form-control"
+                    value="<?= $dataForm['precio'] ?? $jugador->getPrecio();?>"
+                    <?php
+                    if(isset($errores['precio'])):
+                    ?>
+                    aria-invalid="true"
+                    aria-describedby="error-precio"
+                    <?php
+                    endif;
+                    ?>
+                >
+                <?php
+                if(isset($errores['precio'])):
+                ?>
+                    <div class="msg-error" id="error-precio"><?= $errores['precio'];?></div>
                 <?php
                 endif;
                 ?>

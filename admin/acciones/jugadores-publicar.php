@@ -15,9 +15,10 @@ if(!$autenticacion->estaAutenticado()) {
 
 $nombre                 = $_POST['nombre'];
 $apellido               = $_POST['apellido'];
-$numero_camiseta        = $_POST['jugador_id'];
+$numero_camiseta        = $_POST['numero_camiseta'];  // Changed from jugador_id
 $club                   = $_POST['club'];
 $descripcion            = $_POST['descripcion'];
+$precio                 = $_POST['precio'] ?? 0.00;  // Add precio
 $imagen_jugador         = $_FILES['imagen_jugador'];
 $alt_imagen_jugador     = $_POST['alt_imagen_jugador'];
 $imagen_camiseta        = $_FILES['imagen_camiseta'];
@@ -41,7 +42,9 @@ if(empty($apellido)) {
 }
 
 if(empty($numero_camiseta)) {
-    $errores['numero_camiseta'] = "El numero de camiseta no debe estar vacío.";
+    $errores['numero_camiseta'] = "El número de camiseta no debe estar vacío.";
+} else if($numero_camiseta < 1 || $numero_camiseta > 99) {
+    $errores['numero_camiseta'] = "El número de camiseta debe estar entre 1 y 99.";
 }
 
 if(empty($club)) {
@@ -52,6 +55,11 @@ if(empty($club)) {
 
 if(empty($descripcion)) {
     $errores['descripcion'] = "La descripcion no debe estar vacía.";
+}
+
+// Add precio validation
+if(!is_numeric($precio) || $precio < 0) {
+    $errores['precio'] = "El precio debe ser un número positivo.";
 }
 
 if(count($errores) > 0) {
@@ -92,7 +100,7 @@ try {
         'estado_publicacion_fk' => $estado_publicacion_fk,
         'nombre'                => $nombre,
         'apellido'              => $apellido,
-        'jugador_id'              => $numero_camiseta,
+        'numero_camiseta'       => $numero_camiseta,  // Changed from jugador_id
         'club'                  => $club,
         'descripcion'           => $descripcion,
         'imagen_jugador'        => $nombreImagenJugador ?? $jugador->getImagenJugador(),
@@ -100,6 +108,7 @@ try {
         'imagen_camiseta'       => $nombreImagenCamiseta ?? $jugador->getImagenCamiseta(),
         'alt_imagen_camiseta'   => $alt_imagen_camiseta,
         'posiciones'            => $posiciones,
+        'precio'                => (float)$precio,  // Add precio to the data array
     ]);
 
     $_SESSION['mensajeExito'] = "El jugador <b>" . $nombre . " " . $apellido . "</b> se creó exitosamente.";

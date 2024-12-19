@@ -13,7 +13,7 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Número</th>
+                    <th>Número Camiseta</th>
                     <th>Estado de Publicación</th>
                     <th>Nombre</th>
                     <th>Apellido</th>

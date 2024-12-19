@@ -30,8 +30,9 @@ class DataFilaJugador
     {
         $jugador = new Jugador();
         $jugador->cargarDatosDeArray([
-            'jugador_id' => $this->jugador_id,
-            'usuario_fk' => $this->usuario_fk,
+            'jugador_id'        => $this->jugador_id,
+            'numero_camiseta'   => $this->numero_camiseta,
+            'usuario_fk'        => $this->usuario_fk,
             'estado_publicacion_fk' => $this->estado_publicacion_fk,
             'nombre' => $this->nombre,
             'apellido' => $this->apellido,
@@ -42,7 +43,6 @@ class DataFilaJugador
             'imagen_camiseta' => $this->imagen_camiseta,
             'alt_imagen_camiseta' => $this->alt_imagen_camiseta,
             'precio' => (float)$this->precio, // Explicitly cast to float
-            'numero_camiseta' => $this->numero_camiseta, // Added numero_camiseta field
         ]);
 
         if($this->estado_publicacion_id !== null) {

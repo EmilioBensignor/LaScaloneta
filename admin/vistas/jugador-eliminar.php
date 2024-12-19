@@ -14,8 +14,8 @@ $jugador = (new Jugador())->porId($_GET['id']);
                 <h2><?= $jugador->getNombre();?> <?= $jugador->getApellido(); ?></h2>
             </div>
             <picture>
-                <source srcset="<?= "imgs/big-" . $jugador->getImagenJugador();?>" media="all and (min-width: 46.875em)">
-                <img src="<?= "imgs/" . $jugador->getImagenJugador();?>" alt="<?= $jugador->getAltImagenJugador();?>">
+                <source srcset="<?= "../imgs/big-" . $jugador->getImagenJugador();?>" media="all and (min-width: 46.875em)">
+                <img src="<?= "../imgs/" . $jugador->getImagenJugador();?>" alt="<?= $jugador->getAltImagenJugador();?>">
             </picture>
 
             <div>
@@ -24,7 +24,7 @@ $jugador = (new Jugador())->porId($_GET['id']);
         </article>
 
         <h2>Confirmación</h2>
-        <form action="acciones/jugadores-eliminar.php?id=<?= $jugador->getNumeroCamiseta();?>" method="post">
+        <form action="acciones/jugador-eliminar.php?id=<?= $jugador->getJugadorId();?>" method="post">
             <button type="submit" class="button">Confirmar eliminación</button>
         </form>
     </section>
