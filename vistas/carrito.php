@@ -27,7 +27,7 @@ $items = $carrito->getItems();
                             <p>Precio unitario: $<?= $item->getPrecio(); ?></p>
                             <p>Subtotal: $<?= $item->getPrecio() * $cantidad; ?></p>
                             <form action="acciones/carrito/quitar.php" method="post" class="formQuitarCarrito">
-                                <input type="hidden" name="jugador_id" value="<?= $item->getNumeroCamiseta(); ?>">
+                                <input type="hidden" name="jugador_id" value="<?= $item->getJugadorId(); ?>">
                                 <input type="hidden" name="jugador_nombre"
                                     value="<?= $item->getNombre(); ?> <?= $item->getApellido(); ?>">
                                 <button type="submit" class="botonPrimario">Quitar</button>
@@ -38,7 +38,12 @@ $items = $carrito->getItems();
             </div>
             <div class="carritoTotal">
                 <p>Total: $<?= $carrito->getTotal(); ?></p>
-                <a href="index.php?s=compra" class="botonPrimario">Finalizar Compra</a>
+                <div class="botonesCarrito">
+                    <form action="acciones/carrito/vaciar.php" method="post" class="formVaciarCarrito">
+                        <button type="submit" class="botonPrimario">Vaciar Carrito</button>
+                    </form>
+                    <a href="index.php?s=compra" class="botonPrimario">Finalizar Compra</a>
+                </div>
             </div>
         </section>
     <?php endif; ?>
@@ -78,6 +83,39 @@ $items = $carrito->getItems();
                         });
                 }
             });
+        });
+    });
+
+    // Agregar manejador para el formulario de vaciar carrito
+    document.querySelector('.formVaciarCarrito').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¿Deseas vaciar completamente el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, vaciar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire(
+                                '¡Carrito vaciado!',
+                                'El carrito ha sido vaciado exitosamente',
+                                'success'
+                            ).then(() => {
+                                window.location.reload();
+                            });
+                        }
+                    });
+            }
         });
     });
 </script>

@@ -20,7 +20,7 @@
             <p>Precio: $<?=$jugador->getPrecio();?></p>
             <?php if(isset($_SESSION['usuario_data'])): ?>
                 <form action="acciones/carrito/agregar.php" method="post" class="formAgregarCarrito">
-                    <input type="hidden" name="jugador_id" value="<?=$jugador->getNumeroCamiseta();?>">
+                    <input type="hidden" name="jugador_id" value="<?=$jugador->getJugadorId();?>">
                     <div class="cantidad-container">
                         <button type="button" class="btn-cantidad" data-action="decrease">-</button>
                         <input type="number" name="cantidad" value="1" min="1" class="input-cantidad" readonly>

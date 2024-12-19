@@ -17,7 +17,7 @@ $jugadores = $jugador->publicados();
         foreach ($jugadores as $jugador):
             ?>
             <article class="card">
-                <a href="index.php?s=detalle&id=<?= $jugador->getNumeroCamiseta(); ?>">
+                <a href="index.php?s=detalle&id=<?= $jugador->getJugadorId(); ?>">
                     <img src="<?= "images/" . $jugador->getImagenJugador(); ?>"
                         alt="<?= $jugador->getAltImagenJugador(); ?>" />
                     <div class="cardBody">
@@ -29,7 +29,7 @@ $jugadores = $jugador->publicados();
                 <div class="cardAction">
                     <?php if (isset($_SESSION['usuario_data'])): ?>
                         <form action="acciones/carrito/agregar.php" method="post" class="formAgregarCarrito">
-                            <input type="hidden" name="jugador_id" value="<?= $jugador->getNumeroCamiseta(); ?>">
+                            <input type="hidden" name="jugador_id" value="<?= $jugador->getJugadorId(); ?>">
                             <div class="cantidad-container">
                                 <button type="button" class="btn-cantidad" data-action="decrease">-</button>
                                 <input type="number" name="cantidad" value="1" min="1" class="input-cantidad" readonly>

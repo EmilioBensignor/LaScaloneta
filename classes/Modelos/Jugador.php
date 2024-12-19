@@ -9,6 +9,7 @@ use PDO;
 class Jugador
 {
     protected int $jugador_id = 0;
+    protected int $numero_camiseta = 0;
     protected int $usuario_fk = 0;
     protected int $estado_publicacion_fk = 0;
     protected string $nombre = "";
@@ -29,7 +30,8 @@ class Jugador
 
     public function cargarDatosDeArray(array $data): void
     {
-        $this->setNumeroCamiseta($data['jugador_id']);
+        $this->setJugadorId($data['jugador_id']);
+        $this->setNumeroCamiseta($data['numero_camiseta']);
         $this->setUsuarioFk($data['usuario_fk']);
         $this->setEstadoPublicacionFk($data['estado_publicacion_fk']);
         $this->setNombre($data['nombre']);
@@ -275,13 +277,24 @@ class Jugador
 
     /* Getter y Setters */
 
-    public function getNumeroCamiseta(): int
+    public function getJugadorId(): int
     {
         return $this->jugador_id;
     }
-    public function setNumeroCamiseta(int $jugador_id): void
+    
+    public function setJugadorId(int $jugador_id): void
     {
         $this->jugador_id = $jugador_id;
+    }
+
+    public function getNumeroCamiseta(): int
+    {
+        return $this->numero_camiseta;
+    }
+    
+    public function setNumeroCamiseta(int $numero_camiseta): void
+    {
+        $this->numero_camiseta = $numero_camiseta;
     }
 
     public function getUsuarioFk(): int
