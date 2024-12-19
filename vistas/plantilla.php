@@ -56,6 +56,12 @@ $jugadores = $jugador->publicados();
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
+                        // Actualizar el contador del carrito
+                        const carritoLink = document.querySelector('nav ul li a[href="index.php?s=carrito"]');
+                        if (carritoLink) {
+                            carritoLink.textContent = `Carrito (${data.cantidadItems})`;
+                        }
+
                         Swal.fire({
                             title: 'Éxito!',
                             text: `Has agregado la camiseta de ${data.jugador} al carrito`,

@@ -24,7 +24,8 @@ if($jugadorId) {
     header('Content-Type: application/json');
     echo json_encode([
         'success' => true,
-        'jugador' => $jugadorData->getNombre() . ' ' . $jugadorData->getApellido()
+        'jugador' => $jugadorData->getNombre() . ' ' . $jugadorData->getApellido(),
+        'cantidadItems' => $carrito->getCantidadItems() // Add this line
     ]);
     exit;
 }
