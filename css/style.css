@@ -717,6 +717,7 @@ textarea {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 /* 
@@ -814,6 +815,13 @@ textarea {
     padding: 2rem;
     font-size: 1.1rem;
     color: #666;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.headerAdmin + .buscador-form {
+    margin-bottom: 2rem;
 }
 
 @media (width >=480px) {
