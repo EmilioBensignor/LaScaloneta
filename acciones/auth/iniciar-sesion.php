@@ -27,9 +27,13 @@ $_SESSION['usuario_data'] = [
 $_SESSION['mensajeExito'] = "¡Bienvenido/a " . $usuario->getNombre() . "!";
 
 // Redirigir según el rol
-if($usuario->getRolFk() == 1) {
-    header('Location: ../../admin/index.php?s=home');
-} else {
-    header('Location: ../../index.php');
+if ($autenticacion->iniciarSesion($email, $password)) {
+    if ($_SESSION['usuario_data']['rol_fk'] == 1) {
+        // Redirigir al admin directamente a la plantilla
+        header('Location: ../../admin/index.php?s=plantilla');
+    } else {
+        header('Location: ../../index.php');
+    }
+    exit;
 }
 exit;

@@ -10,13 +10,9 @@ if (!isset($_SESSION['usuario_data']) || $_SESSION['usuario_data']['rol_fk'] != 
     exit;
 }
 
-$ruta = $_GET['s'] ?? 'home';
+$ruta = $_GET['s'] ?? 'plantilla';
 
 $arrayRutas = [
-    'home' => [
-        'titulo' => 'Tablero Principal',
-        'requiereAutenticacion' => true,
-    ],
     'plantilla' => [
         'titulo' => 'Administración de jugadores',
         'requiereAutenticacion' => true,
@@ -88,7 +84,6 @@ $requiereAutenticacion = $configurarRuta['requiereAutenticacion'] ?? false;
                 if ($autenticacion->estaAutenticado()):
                     ?>
                     <ul>
-                        <li><a href="index.php?s=home">Tablero</a></li>
                         <li><a href="index.php?s=plantilla">Plantilla</a></li>
                         <li><a href="index.php?s=usuarios">Usuarios</a></li>
                     </ul>
