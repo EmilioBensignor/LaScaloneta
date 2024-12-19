@@ -12,7 +12,8 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
         <table>
             <thead>
                 <tr>
-                    <th>Numero Camiseta</th>
+                    <th>ID</th>
+                    <th>Número</th>
                     <th>Estado de Publicación</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
@@ -30,6 +31,7 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
                 foreach ($jugadores as $jugador) :
                 ?>
                     <tr>
+                        <td><?= $jugador->getJugadorId(); ?></td>
                         <td><?= $jugador->getNumeroCamiseta(); ?></td>
                         <td><?= $jugador->getEstadoPublicacion()->getEstado(); ?></td>
                         <td><?= $jugador->getNombre(); ?></td>
@@ -59,8 +61,8 @@ $jugadores = (new \App\Modelos\Jugador())->todos();
                         <td><img src="<?= '../images/' . $jugador->getImagenJugador(); ?>" alt="<?= $jugador->getAltImagenJugador(); ?>" class="imgPlantilla"></td>
                         <td><img src="<?= '../images/' . $jugador->getImagenCamiseta(); ?>" alt="<?= $jugador->getAltImagenCamiseta(); ?>" class="imgPlantilla"></td>
                         <td>
-                            <a href="index.php?s=jugador-editar&id=<?= $jugador->getNumeroCamiseta(); ?>">Editar</a>
-                            <a href="index.php?s=jugador-eliminar&id=<?= $jugador->getNumeroCamiseta(); ?>">Eliminar</a>
+                            <a href="index.php?s=jugador-editar&id=<?= $jugador->getJugadorId(); ?>">Editar</a>
+                            <a href="index.php?s=jugador-eliminar&id=<?= $jugador->getJugadorId(); ?>">Eliminar</a>
                         </td>
                     </tr>
                 <?php

@@ -31,7 +31,7 @@ class Jugador
     public function cargarDatosDeArray(array $data): void
     {
         $this->setJugadorId($data['jugador_id']);
-        $this->setNumeroCamiseta($data['numero_camiseta']);
+        $this->setNumeroCamiseta((int)$data['numero_camiseta']); // Cast to int
         $this->setUsuarioFk($data['usuario_fk']);
         $this->setEstadoPublicacionFk($data['estado_publicacion_fk']);
         $this->setNombre($data['nombre']);
@@ -52,6 +52,7 @@ class Jugador
         $db = (new DBConexion())->getDB();
         $query = "SELECT 
                         j.*,
+                        j.numero_camiseta,  /* Explicitly select numero_camiseta */
                         ep.*,
                         GROUP_CONCAT(p.posicion_id, ':', p.nombre SEPARATOR ' :: ') AS 'posiciones_agrupadas',
                         j.precio
@@ -62,8 +63,8 @@ class Jugador
                         ON j.jugador_id = jtp.jugador_fk
                     LEFT JOIN posiciones p
                         ON p.posicion_id = jtp.posicion_fk
-                    GROUP BY j.jugador_id, j.precio
-                    ORDER BY j.jugador_id";
+                    GROUP BY j.jugador_id, j.numero_camiseta, j.precio
+                    ORDER BY j.numero_camiseta";  /* Order by numero_camiseta */
         $stmt = $db->prepare($query);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, DataFilaJugador::class);
@@ -124,7 +125,7 @@ class Jugador
         $query = "SELECT * FROM jugadores_tienen_posiciones
                 WHERE jugador_fk = ?";
         $stmt = $db->prepare($query);
-        $stmt->execute([$this->getNumeroCamiseta()]);
+        $stmt->execute([$this->getJugadorId()]);
 
         while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->posicionesId[] = $fila['posicion_fk'];
@@ -140,7 +141,7 @@ class Jugador
                     ON jtp.posicion_fk = p.posicion_id
                 WHERE jugador_fk = ?";
         $stmt = $db->prepare($query);
-        $stmt->execute([$this->getNumeroCamiseta()]);
+        $stmt->execute([$this->getJugadorId()]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Posicion::class);
 
         $this->setPosiciones($stmt->fetchAll());
@@ -151,7 +152,8 @@ class Jugador
         $db = (new DBConexion())->getDB();
         $query = "INSERT INTO jugadores (
             usuario_fk, 
-            estado_publicacion_fk, 
+            estado_publicacion_fk,
+            numero_camiseta, 
             nombre, 
             apellido, 
             club, 
@@ -163,7 +165,8 @@ class Jugador
             precio
         ) VALUES (
             :usuario_fk, 
-            :estado_publicacion_fk, 
+            :estado_publicacion_fk,
+            :numero_camiseta, 
             :nombre, 
             :apellido, 
             :club, 
@@ -178,6 +181,7 @@ class Jugador
         $stmt->execute([
             'usuario_fk'                => $data['usuario_fk'],
             'estado_publicacion_fk'     => $data['estado_publicacion_fk'],
+            'numero_camiseta'           => $data['numero_camiseta'],
             'nombre'                    => $data['nombre'],
             'apellido'                  => $data['apellido'],
             'club'                      => $data['club'],
