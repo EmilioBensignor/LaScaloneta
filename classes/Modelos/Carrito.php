@@ -12,11 +12,8 @@ class Carrito
 
     public function agregar(int $jugadorId, int $cantidad = 1): void
     {
-        if (!isset($_SESSION['carrito'][$jugadorId])) {
-            $_SESSION['carrito'][$jugadorId] = $cantidad;
-        } else {
-            $_SESSION['carrito'][$jugadorId] += $cantidad;
-        }
+        // Reemplazar la cantidad existente en lugar de sumarla
+        $_SESSION['carrito'][$jugadorId] = $cantidad;
     }
 
     public function quitar(int $jugadorId): void
