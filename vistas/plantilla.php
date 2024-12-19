@@ -1,7 +1,24 @@
 <?php
 use App\Modelos\Jugador;
 $jugador = new Jugador();
+
+// Obtener el término de búsqueda
+$searchTerm = $_GET['search'] ?? '';
+
+// Obtener jugadores filtrados
 $jugadores = $jugador->publicados();
+
+if (!empty($searchTerm)) {
+    $jugadores = array_filter($jugadores, function($jugador) use ($searchTerm) {
+        $searchLower = strtolower($searchTerm);
+        $nombreCompleto = strtolower($jugador->getNombre() . ' ' . $jugador->getApellido());
+        
+        return str_contains($nombreCompleto, $searchLower) ||
+            str_contains(strtolower($jugador->getNombre()), $searchLower) ||
+            str_contains(strtolower($jugador->getApellido()), $searchLower) ||
+            str_contains(strtolower($jugador->getNumeroCamiseta()), $searchLower);
+    });
+}
 ?>
 
 <main class="main-plantilla">
@@ -11,11 +28,26 @@ $jugadores = $jugador->publicados();
             Hacé click en el nombre de tu jugador favorito para poder ver más información de él y poder llevarte ¡tu
             camiseta!
         </p>
+        <!-- Agregar formulario de búsqueda -->
+        <form class="buscador-form" method="get" action="index.php">
+            <input type="hidden" name="s" value="plantilla">
+            <div class="buscador-container">
+                <input 
+                    type="text" 
+                    name="search" 
+                    placeholder="Buscar por nombre, apellido o número..."
+                    value="<?= htmlspecialchars($searchTerm) ?>"
+                >
+                <button type="submit" class="botonPrimario">Buscar</button>
+            </div>
+        </form>
     </div>
+    
     <section class="sectionJugadores">
-        <?php
-        foreach ($jugadores as $jugador):
-            ?>
+        <?php if (empty($jugadores)): ?>
+            <p class="no-resultados">No se encontraron jugadores que coincidan con tu búsqueda.</p>
+        <?php else: ?>
+            <?php foreach ($jugadores as $jugador): ?>
             <article class="card">
                 <a href="index.php?s=detalle&id=<?= $jugador->getJugadorId(); ?>">
                     <img src="<?= "images/" . $jugador->getImagenJugador(); ?>"
@@ -42,9 +74,8 @@ $jugadores = $jugador->publicados();
                     <?php endif; ?>
                 </div>
             </article>
-            <?php
-        endforeach;
-        ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </section>
 </main>
 

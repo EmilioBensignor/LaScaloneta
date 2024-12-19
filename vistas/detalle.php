@@ -14,7 +14,7 @@
         </div>
     </section>
     <section class="sectionCamiseta">
-        <p>¿Querés llevarte la camiseta de <?=$jugador->getNombre();?> <?=$jugador->getApellido();?>? ¡Próximamente en otro parcial podrás comprarla!</p>
+        <p>¿Querés llevarte la camiseta de <?=$jugador->getNombre();?> <?=$jugador->getApellido();?>?</p>
         <div>
             <img src="<?="images/" . $jugador->getImagenCamiseta();?>" alt="<?=$jugador->getAltImagenCamiseta();?>">
             <p>Precio: $<?=$jugador->getPrecio();?></p>

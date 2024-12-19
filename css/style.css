@@ -783,6 +783,39 @@ textarea {
     margin-top: 20px;
 }
 
+/* Estilos del buscador */
+.buscador-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem 0;
+}
+
+.buscador-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.buscador-container input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.5rem 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.buscador-container .botonPrimario {
+    padding: 0.5rem 1rem;
+}
+
+.no-resultados {
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
 @media (width >=480px) {
 
     ul li a,
