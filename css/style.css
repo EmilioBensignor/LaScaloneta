@@ -719,6 +719,49 @@ textarea {
     gap: 1rem;
 }
 
+/* 
+.formAgregarCarrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+} */
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.input-cantidad {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.btn-cantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.btn-cantidad:hover {
+    background-color: #f0f0f0;
+}
+
+
+
 @media (width >=480px) {
 
     ul li a,

@@ -10,12 +10,12 @@ class Carrito
         }
     }
 
-    public function agregar(int $jugadorId): void
+    public function agregar(int $jugadorId, int $cantidad = 1): void
     {
         if (!isset($_SESSION['carrito'][$jugadorId])) {
-            $_SESSION['carrito'][$jugadorId] = 1;
+            $_SESSION['carrito'][$jugadorId] = $cantidad;
         } else {
-            $_SESSION['carrito'][$jugadorId]++;
+            $_SESSION['carrito'][$jugadorId] += $cantidad;
         }
     }
 

@@ -30,6 +30,11 @@ $jugadores = $jugador->publicados();
                     <?php if (isset($_SESSION['usuario_data'])): ?>
                         <form action="acciones/carrito/agregar.php" method="post" class="formAgregarCarrito">
                             <input type="hidden" name="jugador_id" value="<?= $jugador->getNumeroCamiseta(); ?>">
+                            <div class="cantidad-container">
+                                <button type="button" class="btn-cantidad" data-action="decrease">-</button>
+                                <input type="number" name="cantidad" value="1" min="1" class="input-cantidad" readonly>
+                                <button type="button" class="btn-cantidad" data-action="increase">+</button>
+                            </div>
                             <button type="submit" class="botonPrimario">Agregar al carrito</button>
                         </form>
                     <?php else: ?>
@@ -64,12 +69,31 @@ $jugadores = $jugador->publicados();
 
                         Swal.fire({
                             title: 'Éxito!',
-                            text: `Has agregado la camiseta de ${data.jugador} al carrito`,
+                            text: `Has agregado ${this.querySelector('.input-cantidad').value} camiseta(s) de ${data.jugador} al carrito`,
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         });
                     }
                 });
+        });
+    });
+
+    // Manejo de los botones de cantidad
+    document.querySelectorAll('.cantidad-container').forEach(container => {
+        const input = container.querySelector('.input-cantidad');
+        const decreaseBtn = container.querySelector('[data-action="decrease"]');
+        const increaseBtn = container.querySelector('[data-action="increase"]');
+
+        decreaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(input.value);
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(input.value);
+            input.value = currentValue + 1;
         });
     });
 </script>

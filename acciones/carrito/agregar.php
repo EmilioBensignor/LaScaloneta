@@ -12,10 +12,11 @@ use App\Modelos\Carrito;
 use App\Modelos\Jugador;
 
 $jugadorId = $_POST['jugador_id'] ?? null;
+$cantidad = (int)($_POST['cantidad'] ?? 1);
 
 if($jugadorId) {
     $carrito = new Carrito();
-    $carrito->agregar((int)$jugadorId);
+    $carrito->agregar((int)$jugadorId, $cantidad);
     
     // Obtener información del jugador para el mensaje
     $jugador = new Jugador();
@@ -25,7 +26,7 @@ if($jugadorId) {
     echo json_encode([
         'success' => true,
         'jugador' => $jugadorData->getNombre() . ' ' . $jugadorData->getApellido(),
-        'cantidadItems' => $carrito->getCantidadItems() // Add this line
+        'cantidadItems' => $carrito->getCantidadItems()
     ]);
     exit;
 }
