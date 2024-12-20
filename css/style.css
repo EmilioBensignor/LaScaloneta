@@ -11,6 +11,7 @@ body {
     grid: "header" auto "main" 1fr "footer" auto / 1fr;
     background-color: #C8E7FF;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 header {
@@ -785,10 +786,14 @@ textarea {
 .headerAdmin {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+}
+
+.headerAdmin h1 {
+    text-align: center;
 }
 
 .cantidadContainer {
@@ -850,6 +855,10 @@ textarea {
     padding: 0.5rem;
 }
 
+.tablaAdmin {
+    overflow-x: scroll;
+}
+
 /* Estilos del buscador */
 .buscador-form {
     width: 100%;
@@ -887,7 +896,7 @@ textarea {
     margin: 1rem 0;
 }
 
-.headerAdmin+.buscador-form {
+.buscador-form {
     margin-bottom: 2rem;
 }
 

@@ -38,7 +38,7 @@ if (!empty($searchTerm)) {
         <?php if (empty($jugadores)): ?>
             <p class="no-resultados">No se encontraron jugadores que coincidan con tu búsqueda.</p>
         <?php else: ?>
-            <table>
+            <table class="tablaAdmin">
                 <thead>
                     <tr>
                         <th>ID</th>
