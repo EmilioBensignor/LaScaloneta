@@ -21,10 +21,11 @@
             <?php if(isset($_SESSION['usuario_data'])): ?>
                 <form action="acciones/carrito/agregar.php" method="post" class="formAgregarCarrito">
                     <input type="hidden" name="jugador_id" value="<?=$jugador->getJugadorId();?>">
-                    <div class="cantidad-container">
-                        <button type="button" class="btn-cantidad" data-action="decrease">-</button>
-                        <input type="number" name="cantidad" value="1" min="1" class="input-cantidad" readonly>
-                        <button type="button" class="btn-cantidad" data-action="increase">+</button>
+                    <div class="cantidadContainer">
+                        <button type="button" class="btnCantidad" data-action="decrease">-</button>
+                        <span class="cantidadDisplay">1</span>
+                        <input type="hidden" name="cantidad" value="1" class="inputCantidad">
+                        <button type="button" class="btnCantidad" data-action="increase">+</button>
                     </div>
                     <button type="submit" class="botonPrimario">Agregar al Carrito</button>
                 </form>
@@ -38,20 +39,23 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // Manejo de los botones de cantidad
-    document.querySelectorAll('.cantidad-container').forEach(container => {
-        const input = container.querySelector('.input-cantidad');
+    document.querySelectorAll('.cantidadContainer').forEach(container => {
+        const display = container.querySelector('.cantidadDisplay');
+        const input = container.querySelector('.inputCantidad');
         const decreaseBtn = container.querySelector('[data-action="decrease"]');
         const increaseBtn = container.querySelector('[data-action="increase"]');
 
         decreaseBtn.addEventListener('click', () => {
-            const currentValue = parseInt(input.value);
+            const currentValue = parseInt(display.textContent);
             if (currentValue > 1) {
+                display.textContent = currentValue - 1;
                 input.value = currentValue - 1;
             }
         });
 
         increaseBtn.addEventListener('click', () => {
-            const currentValue = parseInt(input.value);
+            const currentValue = parseInt(display.textContent);
+            display.textContent = currentValue + 1;
             input.value = currentValue + 1;
         });
     });
@@ -75,7 +79,7 @@
 
                 Swal.fire({
                     title: 'Éxito!',
-                    text: `Has agregado ${this.querySelector('.input-cantidad').value} camiseta(s) de ${data.jugador} al carrito`,
+                    text: `Has agregado ${this.querySelector('.inputCantidad').value} camiseta(s) de ${data.jugador} al carrito`,
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 });

@@ -1,4 +1,5 @@
 <?php
+
 use App\Modelos\Carrito;
 use App\Modelos\Jugador;
 
@@ -12,21 +13,25 @@ $items = $carrito->getItems();
         <p>No hay items en el carrito</p>
     <?php else: ?>
         <section class="sectionCarrito">
+            <form action="acciones/carrito/vaciar.php" method="post" class="formVaciarCarrito">
+                <button type="submit" class="botonPrimario vaciarCarrito">Vaciar Carrito</button>
+            </form>
             <div class="carritoContainer">
                 <?php foreach ($items as $jugadorId => $cantidad):
                     $item = $jugador->porId($jugadorId);
                     if (!$item)
                         continue;
-                    ?>
+                ?>
                     <article class="itemCarrito">
                         <img src="<?= "images/" . $item->getImagenCamiseta(); ?>" alt="<?= $item->getAltImagenCamiseta(); ?>">
                         <div class="itemInfo">
                             <h3><?= $item->getNombre(); ?> <?= $item->getApellido(); ?></h3>
-                            <div class="cantidad-container">
-                                <button type="button" class="btn-cantidad" data-action="decrease">-</button>
-                                <input type="number" name="cantidad" value="<?= $cantidad; ?>" min="1" class="input-cantidad" readonly
+                            <div class="cantidadContainer">
+                                <button type="button" class="btnCantidad" data-action="decrease">-</button>
+                                <span class="cantidadDisplay"><?= $cantidad; ?></span>
+                                <input type="hidden" name="cantidad" value="<?= $cantidad; ?>" class="inputCantidad"
                                     data-jugador-id="<?= $item->getJugadorId(); ?>">
-                                <button type="button" class="btn-cantidad" data-action="increase">+</button>
+                                <button type="button" class="btnCantidad" data-action="increase">+</button>
                             </div>
                             <p>Precio unitario: $<?= $item->getPrecio(); ?></p>
                             <p class="subtotal">Subtotal: $<?= $item->getPrecio() * $cantidad; ?></p>
@@ -43,9 +48,6 @@ $items = $carrito->getItems();
             <div class="carritoTotal">
                 <p>Total: $<?= $carrito->getTotal(); ?></p>
                 <div class="botonesCarrito">
-                    <form action="acciones/carrito/vaciar.php" method="post" class="formVaciarCarrito">
-                        <button type="submit" class="botonPrimario">Vaciar Carrito</button>
-                    </form>
                     <a href="index.php?s=compra" class="botonPrimario">Finalizar Compra</a>
                 </div>
             </div>
@@ -56,7 +58,7 @@ $items = $carrito->getItems();
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.querySelectorAll('.formQuitarCarrito').forEach(form => {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             const jugadorNombre = this.querySelector('input[name="jugador_nombre"]').value;
 
@@ -70,9 +72,9 @@ $items = $carrito->getItems();
             }).then((result) => {
                 if (result.isConfirmed) {
                     fetch(this.action, {
-                        method: 'POST',
-                        body: new FormData(this)
-                    })
+                            method: 'POST',
+                            body: new FormData(this)
+                        })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -93,7 +95,7 @@ $items = $carrito->getItems();
     // Agregar manejador para el formulario de vaciar carrito
     document.querySelector('.formVaciarCarrito').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         Swal.fire({
             title: '¿Estás seguro?',
             text: '¿Deseas vaciar completamente el carrito?',
@@ -104,9 +106,9 @@ $items = $carrito->getItems();
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(this.action, {
-                    method: 'POST',
-                    body: new FormData(this)
-                })
+                        method: 'POST',
+                        body: new FormData(this)
+                    })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -124,52 +126,48 @@ $items = $carrito->getItems();
     });
 
     // Manejo de los botones de cantidad
-    document.querySelectorAll('.cantidad-container').forEach(container => {
-        const input = container.querySelector('.input-cantidad');
+    document.querySelectorAll('.cantidadContainer').forEach(container => {
+        const display = container.querySelector('.cantidadDisplay');
+        const input = container.querySelector('.inputCantidad');
         const decreaseBtn = container.querySelector('[data-action="decrease"]');
         const increaseBtn = container.querySelector('[data-action="increase"]');
         const jugadorId = input.dataset.jugadorId;
 
         const updateQuantity = (newValue) => {
             fetch('acciones/carrito/agregar.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `jugador_id=${jugadorId}&cantidad=${newValue}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Actualizar el valor mostrado
-                    input.value = newValue;
-                    
-                    // Recalcular y actualizar el subtotal
-                    const precioUnitario = parseFloat(container.closest('.itemInfo').querySelector('p').textContent.replace('Precio unitario: $', ''));
-                    const subtotalElement = container.closest('.itemInfo').querySelector('.subtotal');
-                    subtotalElement.textContent = `Subtotal: $${(precioUnitario * newValue).toFixed(2)}`;
-                    
-                    // Actualizar el contador del carrito
-                    const carritoLink = document.querySelector('nav ul li a[href="index.php?s=carrito"]');
-                    if (carritoLink) {
-                        carritoLink.textContent = `Carrito (${data.cantidadItems})`;
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `jugador_id=${jugadorId}&cantidad=${newValue}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Actualizar el valor mostrado
+                        display.textContent = newValue;
+                        input.value = newValue;
+
+                        // Recalcular y actualizar el subtotal
+                        const precioUnitario = parseFloat(container.closest('.itemInfo').querySelector('p').textContent.replace('Precio unitario: $', ''));
+                        const subtotalElement = container.closest('.itemInfo').querySelector('.subtotal');
+                        subtotalElement.textContent = `Subtotal: $${(precioUnitario * newValue).toFixed(2)}`;
+
+                        // Actualizar el total
+                        window.location.reload();
                     }
-                    
-                    // Actualizar el total
-                    window.location.reload();
-                }
-            });
+                });
         };
 
         decreaseBtn.addEventListener('click', () => {
-            const currentValue = parseInt(input.value);
+            const currentValue = parseInt(display.textContent);
             if (currentValue > 1) {
                 updateQuantity(currentValue - 1);
             }
         });
 
         increaseBtn.addEventListener('click', () => {
-            const currentValue = parseInt(input.value);
+            const currentValue = parseInt(display.textContent);
             updateQuantity(currentValue + 1);
         });
     });
