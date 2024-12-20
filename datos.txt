@@ -1,10 +1,13 @@
 Carrera: Diseño Web
 Materia: Programación II
 Cuatrimestre: 3er Cuatrimestre
-Año: 2024
+Año: 2023
 Turno: Mañana
 Comisión: B
 Apellido: Crupnicoff
 Nombre: Lara
 Docente: Santiago Gallino
 Carácter de entrega: Final
+
+Usuario Admin: juanperez@gmail.com
+Contraseña: 1234

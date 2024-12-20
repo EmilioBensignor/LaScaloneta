@@ -1,0 +1,1616 @@
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    display: grid;
+    grid: "header" auto "main" 1fr "footer" auto / 1fr;
+    background-color: #C8E7FF;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    grid-area: header;
+    background-color: #78BAF0;
+    padding: 1rem;
+    border-bottom: 2px solid #4496E0;
+}
+
+.headerSuperior {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerSuperior>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.divLogo img {
+    width: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+p {
+    font-size: 0.75rem;
+}
+
+nav {
+    padding-top: 0.5rem;
+}
+
+nav ul {
+    flex-wrap: wrap;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+ul li {
+    display: flex;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    transition: all 0.3s;
+}
+
+ul li:hover {
+    background-color: #C8E7FF;
+}
+
+ul li a,
+.iniciar {
+    text-decoration: none;
+    color: black;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.iniciar {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 1px;
+    transition: all 0.3s;
+}
+
+.iniciar:hover {
+    border-color: #C8E7FF;
+}
+
+main {
+    width: 100%;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #78BAF0;
+    padding: 1rem;
+}
+
+.botonPrimario,
+.swal2-confirm,
+.swal2-cancel {
+    display: flex;
+    align-items: center;
+    background: #4496E0;
+    box-shadow: 2px 0px 2px #5FC6FF, 0px 0px 2px #5FC6FF, 0px 2px 2px #5FC6FF;
+    border: none;
+    border-radius: 999px;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.botonUnderline {
+    width: max-content;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 2px solid #4496E0;
+    padding: 0.25rem;
+    margin: 0 auto;
+}
+
+.swal2-cancel {
+    background: transparent;
+    border: 3px solid #4496E0;
+    color: #4496E0;
+}
+
+.botonPrimario:hover,
+.swal2-confirm:hover {
+    background: #5FC6FF;
+}
+
+.botonUnderline:hover {
+    color: #4496E0;
+    background: none;
+}
+
+.swal2-cancel:hover {
+    background: #4496E0;
+    color: white;
+}
+
+/* Home */
+
+span {
+    font-weight: 500;
+}
+
+.banner {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-image: url('../images/banner-argentina.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid #4496E0;
+    border-radius: 24px;
+    box-shadow: 0px 4px 2px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
+}
+
+.banner p {
+    width: 100%;
+    text-align: center;
+    background-color: #4496E0;
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+}
+
+.banner p:first-of-type {
+    border-radius: 18px 18px 0 0;
+}
+
+.banner p:last-of-type {
+    border-radius: 0 0 18px 18px;
+}
+
+/* Sección Partidos Camisetas Goles */
+
+.partidos-camisetas-estadisticas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.partidos-camisetas-estadisticas>div {
+    width: 100%;
+}
+
+.partidos-camisetas-estadisticas h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.partidos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pDescriptivo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.divDosPartidos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divPartido {
+    width: 48%;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    border: 1.5px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
+    padding: 0.5rem 0.75rem;
+}
+
+.divPartido p:first-child {
+    text-align: center;
+    font-weight: 600;
+}
+
+.divPais {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.divPais img {
+    width: 1rem;
+}
+
+.divFinal {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Camisetas en Home */
+
+.sectionCamisetasHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
+    padding: 0.75rem;
+}
+
+.gridCamisetas {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.camisetaHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.camisetaHome img {
+    width: 3rem;
+}
+
+.camisetaHome a {
+    text-decoration: none;
+    color: black;
+}
+
+.irPlantilla,
+.divContactoHome div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Goleadores */
+
+.sectionGAA {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 20px;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
+    text-align: start;
+    padding: 1rem;
+}
+
+.sectionGAA>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sectionGAA ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sectionGAA ul li {
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    padding: 0;
+}
+
+/* Contacto en Home */
+
+.contacto-home {
+    width: 100%;
+}
+
+.divContactoHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    border: 2px solid #4496E0;
+    box-shadow: 0px 4px 5px #4496E0, 0px 0px 2px #4496E0, 0px 2px 2px #4496E0;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+/* Plantilla */
+.explicacion {
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.sectionJugadores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.card {
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 22px;
+    box-shadow: 0px 1px 10px #4496E0, 0px 4px 5px #4496E0, 0px 2px 4px -1px #4496E0;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.cardBody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.cardBody p {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.cardAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0 0.75rem 0;
+}
+
+.cardAction form {
+    gap: 0.5rem;
+}
+
+.cantidadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.cantidadContainer .inputCantidad {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.cantidadContainer .btnCantidad {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2a6ba0;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #f5f5f5;
+    transition: all 0.3s;
+}
+
+.cantidadContainer .btnCantidad:hover {
+    background: #5FC6FF;
+    color: black;
+}
+
+.cantidadDisplay {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    user-select: none;
+}
+
+/* Detalle */
+.sectionDescripcion,
+.sectionCamiseta {
+    max-width: 400px;
+}
+
+.sectionDescripcion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sectionDescripcion img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid #4496E0;
+    border-radius: 999px;
+}
+
+.sectionDescripcion p {
+    text-align: center;
+}
+
+.sectionCamiseta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sectionCamiseta p {
+    text-align: center;
+}
+
+.sectionCamiseta>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sectionCamiseta img {
+    width: 10rem;
+}
+
+.sectionCamiseta>div p {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Contacto */
+main form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+main form p {
+    text-align: center;
+}
+
+
+fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid #4496E0;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+legend {
+    color: black;
+    font-size: 1rem;
+}
+
+.sectionContacto {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sectionContacto div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+form label {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.divTextarea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+textarea {
+    resize: none;
+}
+
+.divButtonForm {
+    display: flex;
+    justify-content: end;
+}
+
+/* Gracias */
+.mainGracias p {
+    text-align: center;
+}
+
+.divMessiSaludo {
+    display: flex;
+    justify-content: center;
+}
+
+.divMessiSaludo img {
+    width: 10rem;
+}
+
+/* 404 */
+.main-404 p {
+    text-align: center;
+}
+
+.main-404 img {
+    width: 15rem;
+}
+
+/* ADMIN */
+
+/* Iniciar Sesion */
+.iniciarSesion {
+    padding: 1rem;
+}
+
+
+.iniciarSesion,
+.formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.formFila {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.registrate {
+    color: #2a6ba0;
+    font-weight: 600;
+}
+
+.imgPlantilla {
+    width: 5rem;
+}
+
+/* Registro */
+
+.registro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Cerrar Sesion */
+
+.cerrarSesion .botonPrimario {
+    background-color: #C8E7FF;
+}
+
+.cerrarSesion .botonPrimario:hover {
+    background-color: #2a6ba0;
+    color: white;
+}
+
+/* Carrito */
+.sectionCarrito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.carritoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.itemCarrito {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.itemCarrito img {
+    width: 7rem;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carritoTotal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carritoTotal p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Compra */
+
+.compra {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.compra>div:first-of-type {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.compra>div:first-of-type p {
+    font-weight: 500;
+}
+
+.mensajeExito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.acciones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.headerAdmin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerAdmin h1 {
+    text-align: center;
+}
+
+.cantidadContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.inputCantidad {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.btnCantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.btnCantidad:hover {
+    background-color: #f0f0f0;
+}
+
+.historialCompras,
+.datosPersonales {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.datosPersonales>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.listaCompras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.compraItem {
+    width: 100%;
+    border: 2px solid #4496E0;
+    border-radius: 18px;
+    padding: 0.5rem;
+}
+
+.tablaAdmin {
+    overflow-x: scroll;
+}
+
+.compras-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.compras-list li {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Estilos del buscador */
+.buscadorForm {
+    width: 100%;
+    max-width: 500px;
+    align-items: flex-start;
+    margin: 1rem 0 2rem 0;
+}
+
+.buscadorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buscadorContainer input {
+    width: 17.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #4496E0;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.buscadorContainer .botonPrimario {
+    padding: 0.5rem 1rem;
+}
+
+.no-resultados {
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #666;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Estilos de tabla */
+.tablaAdminContainer {
+    max-width: 90vw;
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.tablaAdmin {
+    min-width: 100%;
+    width: auto;
+    border-collapse: collapse;
+}
+
+.tablaAdmin th,
+.tablaAdmin td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #4496E0;
+    white-space: nowrap;
+}
+
+.tablaAdmin th {
+    background-color: #78BAF0;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.tablaAdmin tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.tablaAdmin .editarEliminar a {
+    display: block;
+}
+
+.tablaAdmin .editarEliminar a:first-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.sectionAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sectionAdmin h1 {
+    text-align: center;
+}
+
+.sectionAdmin .formCheck {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sectionAdmin .formCheck input {
+    width: 1rem;
+    height: 1rem;
+}
+
+.sectionAdmin .formCheck label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.estarPor {
+    text-align: center;
+}
+
+.estarPor span {
+    font-weight: bold;
+}
+
+.volverButton {
+    width: max-content;
+}
+
+.comprasContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.comprasUsuarios {
+    max-width: 70vw;
+}
+
+.compraGrupo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+/* Estilos para errores de formulario */
+.error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    text-align: start;
+}
+
+.input-error {
+    border-color: #dc3545;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: #dc3545;
+}
+
+@media (width >=480px) {
+
+    ul li a,
+    .iniciar {
+        font-size: 0.875rem;
+    }
+
+    .banner p {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+
+    }
+
+    .main-404 img {
+        width: 20rem;
+    }
+
+    .buscadorContainer {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .compraItem {
+        width: 48%;
+    }
+}
+
+@media (width >=660px) {
+
+    header,
+    footer,
+    main {
+        padding: 1.5rem 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3,
+    legend {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    p,
+    .banner p,
+    .sectionGAA ul li,
+    form label {
+        font-size: 0.875rem;
+    }
+
+    ul li a,
+    .iniciar {
+        font-size: 1rem;
+    }
+
+    .iniciar {
+        border-width: 3px;
+        padding-bottom: 2px;
+    }
+
+    .botonPrimario {
+        font-size: 1rem;
+    }
+
+    .partidos-camisetas-estadisticas {
+        gap: 2rem;
+    }
+
+    .partidos-camisetas-estadisticas>div,
+    .contacto-home {
+        max-width: 630px;
+    }
+
+    .divPartido {
+        max-width: 300px;
+    }
+
+    .divPais {
+        gap: 0.75rem;
+    }
+
+    .divPais img {
+        width: 1.5rem;
+    }
+
+    .sectionCamisetasHome {
+        gap: 2rem;
+    }
+
+    .gridCamisetas,
+    .camisetaHomre {
+        gap: 1rem;
+    }
+
+    .camisetaHome img {
+        width: 5rem;
+    }
+
+    .sectionGAA,
+    .sectionGAA>div {
+        gap: 1.5rem;
+    }
+
+    .explicacion {
+        max-width: 430px;
+    }
+
+    .card {
+        width: 18rem;
+    }
+
+    .sectionDescripcion,
+    .sectionCamiseta {
+        max-width: 600px;
+    }
+
+    .sectionDescripcion img {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .sectionCamiseta>div {
+        gap: 1rem;
+    }
+
+    .sectionCamiseta img {
+        width: 12rem;
+    }
+
+    .sectionCamiseta>div p {
+        font-size: 1rem;
+    }
+
+    .sectionContacto,
+    fieldset {
+        gap: 1rem;
+    }
+
+    .sectionContacto div,
+    .divTextarea {
+        gap: 0.625rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .sectionCarrito {
+        gap: 3rem;
+    }
+
+    .itemCarrito {
+        width: 18rem;
+    }
+
+    .itemInfo {
+        gap: 0.5rem;
+    }
+
+    .divMessiSaludo img {
+        width: 15rem;
+    }
+
+    .main-404 img {
+        width: 25rem;
+    }
+
+    .buscadorForm {
+        margin: 3rem 0 2rem 0;
+    }
+
+    .buscadorContainer input {
+        width: 22rem;
+    }
+
+    .plantillaAdmin {
+        flex-direction: row;
+    }
+
+    .error-message {
+        font-size: 0.875rem;
+    }
+}
+
+@media (width >=1080px) {
+
+    header,
+    footer,
+    main {
+        padding: 2rem;
+    }
+
+    main {
+        gap: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        text-align: start;
+        font-size: 1.25rem;
+    }
+
+    p,
+    .banner p,
+    .sectionGAA ul li,
+    input,
+    select,
+    textarea {
+        font-size: 1rem;
+    }
+
+    ul li a,
+    .iniciar {
+        font-size: 1.125rem;
+    }
+
+    .botonPrimario {
+        font-size: 1.125rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .botonUnderline {
+        padding: 0.25rem;
+    }
+
+    .banner {
+        height: 30rem;
+    }
+
+    .banner p {
+        padding: 0.75rem 1rem;
+    }
+
+    .partidos-camisetas-estadisticas {
+        gap: 3rem;
+    }
+
+    .partidos-camisetas-estadisticas>div {
+        max-width: 820px;
+    }
+
+    .partidos {
+        gap: 1.5rem;
+    }
+
+    .partidos-camisetas-estadisticas h3 {
+        margin-bottom: 1rem;
+    }
+
+    .pDescriptivo {
+        margin-bottom: 1.5rem;
+    }
+
+    .divDosPartidos {
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    .sectionCamisetasHome {
+        gap: 3rem;
+        padding: 2rem;
+    }
+
+    .gridCamisetas {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .camisetaHome img {
+        width: 10rem;
+    }
+
+    .sectionGAA {
+        flex-direction: row;
+        gap: 5rem;
+        padding: 2rem;
+    }
+
+    .sectionGAA ul {
+        gap: 1rem;
+    }
+
+    .explicacion {
+        max-width: 500px;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 19rem;
+    }
+
+    .cardBody p {
+        font-size: 1rem;
+    }
+
+    .cardAction form {
+        gap: 1rem;
+    }
+
+    .mainDetalle,
+    .mainGracias {
+        gap: 2rem;
+    }
+
+    .sectionDescripcion,
+    .sectionCamiseta {
+        max-width: 1070px;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .sectionCamiseta {
+        margin-top: -4rem;
+    }
+
+    .sectionDescripcion img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .sectionCamiseta img {
+        width: 15rem;
+    }
+
+    .sectionCamiseta>div p {
+        font-size: 1.25rem;
+    }
+
+    .divContactoHome {
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    main form,
+    .compra {
+        width: 100%;
+        max-width: 840px;
+        gap: 2rem;
+    }
+
+    form label {
+        font-size: 1rem;
+    }
+
+    .formContainer {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .sectionContacto {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sectionContacto>div {
+        width: 49%;
+    }
+
+    .registro {
+        gap: 2rem;
+    }
+
+    .itemCarrito {
+        width: 20rem;
+    }
+
+    .itemCarrito img {
+        width: 9rem;
+    }
+
+    .itemInfo {
+        gap: 0.75rem;
+    }
+
+    .carritoTotal p {
+        font-size: 1.75rem;
+    }
+
+    .divMessiSaludo img {
+        width: 20rem;
+    }
+
+    .mensajeExito {
+        gap: 2rem;
+    }
+
+    .main-404 {
+        gap: 2rem;
+    }
+
+    .main-404 img {
+        width: 30rem;
+    }
+
+    .buscadorContainer input {
+        width: 25rem;
+    }
+
+    .compraItem {
+        width: 32%;
+    }
+
+    .sectionAdmin .formCheck {
+        flex-direction: row;
+        gap: 5rem;
+    }
+}
+
+@media (width >=1440px) {
+
+    header>div,
+    header nav,
+    main,
+    footer p {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
+    header,
+    footer,
+    main {
+        padding: 2.5rem 1.5rem;
+    }
+
+    main,
+    .partidos-camisetas-estadisticas {
+        gap: 5rem;
+    }
+
+    .divLogo img {
+        width: 3rem;
+    }
+
+    ul li a,
+    .iniciar {
+        font-size: 1.25rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3,
+    legend {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    .banner p,
+    .sectionGAA ul li {
+        font-size: 1.125rem;
+    }
+
+    .headerSuperior>div,
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li {
+        padding: 0.5rem 1rem;
+    }
+
+    .banner {
+        height: 35rem;
+    }
+
+    .banner p {
+        padding: 1rem 1.25rem;
+    }
+
+    .partidos-camisetas-estadisticas>div {
+        max-width: 950px;
+    }
+
+    .partidos {
+        gap: 2rem;
+    }
+
+    .gridCamisetas {
+        gap: 4rem;
+    }
+
+    .sectionGAA {
+        gap: 8rem;
+    }
+
+    .divPais img {
+        width: 2rem;
+    }
+
+    .explicacion {
+        max-width: 550px;
+    }
+
+    .sectionJugadores {
+        gap: 3rem;
+    }
+
+    .cardBody {
+        gap: 0.75rem;
+    }
+
+    .cardBody p {
+        font-size: 1.125rem;
+    }
+
+    .mainDetalle,
+    .mainGracias {
+        gap: 3rem;
+    }
+
+    .sectionDescripcion,
+    .sectionCamiseta {
+        max-width: 1200px;
+        gap: 5rem;
+    }
+
+    .sectionCamiseta>div {
+        gap: 1.5rem;
+    }
+
+    .sectionDescripcion img {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .sectionCamiseta img {
+        width: 17rem;
+    }
+
+    .sectionCamiseta>div p {
+        font-size: 1.375rem;
+    }
+
+    main form,
+    .compra {
+        gap: 2rem;
+    }
+
+    form label {
+        font-size: 1.125rem;
+    }
+
+    .carritoTotal {
+        gap: 1.5rem;
+    }
+
+    .main-404 img {
+        width: 35rem;
+    }
+}
