@@ -104,6 +104,27 @@ $configurarRuta = $arrayRutas[$ruta];
     <footer>
         <p>Lara Crupnicoff - Da Vinci - 2024</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.querySelectorAll('.cerrarSesion .botonPrimario').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¿Deseas cerrar la sesión?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4496E0',
+                    cancelButtonColor: '#2a6ba0',
+                    confirmButtonText: 'Sí, cerrar sesión',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = this.href;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
