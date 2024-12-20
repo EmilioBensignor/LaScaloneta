@@ -63,6 +63,10 @@
     // Agregar al carrito con fetch
     document.querySelector('.formAgregarCarrito').addEventListener('submit', function(e) {
         e.preventDefault();
+        const form = this;
+        const display = form.querySelector('.cantidadDisplay');
+        const input = form.querySelector('.inputCantidad');
+        const cantidadAgregada = input.value; // Guardar la cantidad antes de resetear
 
         fetch(this.action, {
             method: 'POST',
@@ -77,9 +81,13 @@
                     carritoLink.textContent = `Carrito (${data.cantidadItems})`;
                 }
 
+                // Resetear la cantidad a 1
+                display.textContent = '1';
+                input.value = '1';
+
                 Swal.fire({
                     title: 'Éxito!',
-                    text: `Has agregado ${this.querySelector('.inputCantidad').value} camiseta(s) de ${data.jugador} al carrito`,
+                    text: `Has agregado ${cantidadAgregada} camiseta(s) de ${data.jugador} al carrito`,
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 });

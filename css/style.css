@@ -1002,6 +1002,22 @@ textarea {
     padding: 1.25rem;
 }
 
+/* Estilos para errores de formulario */
+.error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    text-align: start;
+}
+
+.input-error {
+    border-color: #dc3545;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: #dc3545;
+}
+
 @media (width >=480px) {
 
     ul li a,
@@ -1192,6 +1208,10 @@ textarea {
     .plantillaAdmin {
         flex-direction: row;
     }
+
+    .error-message {
+        font-size: 0.875rem;
+    }
 }
 
 @media (width >=1080px) {
@@ -1368,6 +1388,7 @@ textarea {
 
     .formContainer {
         flex-direction: row;
+        align-items: flex-start;
     }
 
     .sectionContacto {
@@ -1421,6 +1442,11 @@ textarea {
 
     .compraItem {
         width: 32%;
+    }
+
+    .sectionAdmin .formCheck {
+        flex-direction: row;
+        gap: 5rem;
     }
 }
 

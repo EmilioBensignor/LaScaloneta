@@ -111,9 +111,9 @@ if (!empty($searchTerm)) {
     <script>
         Swal.fire({
             icon: 'success',
-            title: '¡Jugador agregado!',
-            text: 'El jugador <?= urldecode($_GET['nombre'] ?? ''); ?> <?= urldecode($_GET['apellido'] ?? ''); ?> se ha creado exitosamente',
-            confirmButtonColor: '#28a745'
+            title: '¡Camiseta agregada!',
+            text: 'Se agregó la camiseta del jugador <?= urldecode($_GET['nombre'] ?? ''); ?> <?= urldecode($_GET['apellido'] ?? ''); ?>',
+            confirmButtonColor: '#4496E0'
         });
     </script>
 <?php endif; ?>

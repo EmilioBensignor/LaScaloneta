@@ -24,8 +24,6 @@ $_SESSION['usuario_data'] = [
     'apellido' => $usuario->getApellido(),
 ];
 
-$_SESSION['mensajeExito'] = "¡Bienvenido/a " . $usuario->getNombre() . "!";
-
 // Redirigir según el rol
 if ($autenticacion->iniciarSesion($email, $password)) {
     if ($_SESSION['usuario_data']['rol_fk'] == 1) {

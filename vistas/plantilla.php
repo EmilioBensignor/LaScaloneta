@@ -85,6 +85,9 @@ if (!empty($searchTerm)) {
     document.querySelectorAll('.formAgregarCarrito').forEach(form => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
+            const display = this.querySelector('.cantidadDisplay');
+            const input = this.querySelector('.inputCantidad');
+            const cantidadAgregada = input.value; // Guardar la cantidad antes de resetear
 
             fetch(this.action, {
                 method: 'POST',
@@ -99,9 +102,13 @@ if (!empty($searchTerm)) {
                             carritoLink.textContent = `Carrito (${data.cantidadItems})`;
                         }
 
+                        // Resetear la cantidad a 1
+                        display.textContent = '1';
+                        input.value = '1';
+
                         Swal.fire({
                             title: 'Éxito!',
-                            text: `Has agregado ${this.querySelector('.cantidadDisplay').textContent} camiseta(s) de ${data.jugador} al carrito`,
+                            text: `Has agregado ${cantidadAgregada} camiseta(s) de ${data.jugador} al carrito`,
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         });

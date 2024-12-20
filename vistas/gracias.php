@@ -1,8 +1,5 @@
-<?php
-$nombre = $_POST['nombre'];
-?>
 <main class="mainGracias">
-    <h2>¡Gracias <?=$nombre?> por ser parte de la Scaloneta!</h2>
+    <h2>¡Gracias por ser parte de la Scaloneta!</h2>
     <p>
         Empezarás a recibir nuestros mails a la brevedad
     </p>
