@@ -143,12 +143,14 @@ footer {
     transition: all 0.3s;
 }
 
-.vaciarCarrito {
+.botonUnderline {
+    width: max-content;
     background: none;
     box-shadow: none;
     border-radius: 0;
     border-bottom: 2px solid #4496E0;
     padding: 0.25rem;
+    margin: 0 auto;
 }
 
 .swal2-cancel {
@@ -162,7 +164,7 @@ footer {
     background: #5FC6FF;
 }
 
-.vaciarCarrito:hover {
+.botonUnderline:hover {
     color: #4496E0;
     background: none;
 }
@@ -829,14 +831,15 @@ textarea {
     background-color: #f0f0f0;
 }
 
-.historialCompras, .datosPersonales {
+.historialCompras,
+.datosPersonales {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.datosPersonales > div {
+.datosPersonales>div {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -860,20 +863,21 @@ textarea {
 }
 
 /* Estilos del buscador */
-.buscador-form {
+.buscadorForm {
     width: 100%;
     max-width: 500px;
-    margin: 1rem 0;
+    align-items: flex-start;
+    margin: 1rem 0 2rem 0;
 }
 
-.buscador-container {
+.buscadorContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.buscador-container input {
+.buscadorContainer input {
     width: 17.5rem;
     padding: 0.5rem 1rem;
     border: 2px solid #4496E0;
@@ -881,7 +885,7 @@ textarea {
     font-family: 'Montserrat', sans-serif;
 }
 
-.buscador-container .botonPrimario {
+.buscadorContainer .botonPrimario {
     padding: 0.5rem 1rem;
 }
 
@@ -896,8 +900,106 @@ textarea {
     margin: 1rem 0;
 }
 
-.buscador-form {
-    margin-bottom: 2rem;
+/* Estilos de tabla */
+.tablaAdminContainer {
+    max-width: 90vw;
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.tablaAdmin {
+    min-width: 100%;
+    width: auto;
+    border-collapse: collapse;
+}
+
+.tablaAdmin th,
+.tablaAdmin td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #4496E0;
+    white-space: nowrap;
+}
+
+.tablaAdmin th {
+    background-color: #78BAF0;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.tablaAdmin tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.tablaAdmin .editarEliminar a {
+    display: block;
+}
+
+.tablaAdmin .editarEliminar a:first-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.sectionAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sectionAdmin h1 {
+    text-align: center;
+}
+
+.sectionAdmin .formCheck {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sectionAdmin .formCheck input {
+    width: 1rem;
+    height: 1rem;
+}
+
+.sectionAdmin .formCheck label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.estarPor {
+    text-align: center;
+}
+
+.estarPor span {
+    font-weight: bold;
+}
+
+.volverButton {
+    width: max-content;
+}
+
+.comprasContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.comprasUsuarios {
+    max-width: 70vw;
+}
+
+.compraGrupo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
 }
 
 @media (width >=480px) {
@@ -917,7 +1019,7 @@ textarea {
         width: 20rem;
     }
 
-    .buscador-container {
+    .buscadorContainer {
         flex-direction: row;
         gap: 1rem;
     }
@@ -1079,8 +1181,16 @@ textarea {
         width: 25rem;
     }
 
-    .buscador-container input {
+    .buscadorForm {
+        margin: 3rem 0 2rem 0;
+    }
+
+    .buscadorContainer input {
         width: 22rem;
+    }
+
+    .plantillaAdmin {
+        flex-direction: row;
     }
 }
 
@@ -1132,7 +1242,7 @@ textarea {
         padding: 0.75rem 1.25rem;
     }
 
-    .vaciarCarrito {
+    .botonUnderline {
         padding: 0.25rem;
     }
 
@@ -1305,7 +1415,7 @@ textarea {
         width: 30rem;
     }
 
-    .buscador-container input {
+    .buscadorContainer input {
         width: 25rem;
     }
 

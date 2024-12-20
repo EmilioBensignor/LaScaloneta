@@ -1,31 +1,16 @@
 <?php
+
 use App\Modelos\Jugador;
 
 $jugador = (new Jugador())->porId($_GET['id']);
 ?>
 <main>
-    <section>
+    <section class="sectionAdmin">
         <h1>Confirmación para Eliminar Jugador</h1>
 
-        <p>Estás por eliminar el siguiente jugador, y se necesita una confirmación para hacerlo:</p>
-        
-        <article>
-            <div>
-                <h2><?= $jugador->getNombre();?> <?= $jugador->getApellido(); ?></h2>
-            </div>
-            <picture>
-                <source srcset="<?= "../imgs/big-" . $jugador->getImagenJugador();?>" media="all and (min-width: 46.875em)">
-                <img src="<?= "../imgs/" . $jugador->getImagenJugador();?>" alt="<?= $jugador->getAltImagenJugador();?>">
-            </picture>
-
-            <div>
-                <?= $jugador->getDescripcion();?>
-            </div>
-        </article>
-
-        <h2>Confirmación</h2>
-        <form action="acciones/jugador-eliminar.php?id=<?= $jugador->getJugadorId();?>" method="post">
-            <button type="submit" class="button">Confirmar eliminación</button>
+        <p class="estarPor">Estás por eliminar a <span><?= $jugador->getNombre(); ?> <?= $jugador->getApellido(); ?></span></p>
+        <form action="acciones/jugador-eliminar.php?id=<?= $jugador->getJugadorId(); ?>" method="post">
+            <button type="submit" class="botonPrimario">Confirmar eliminación</button>
         </form>
     </section>
 </main>

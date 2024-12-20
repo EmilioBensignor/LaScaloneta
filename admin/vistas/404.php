@@ -3,10 +3,7 @@
     <p>¡No te preocupes! El Dibu te va a ayudar a encontrar tu camino</p>
     <ul>
         <li>
-            <a href="index.php?s=home">Ir a la home</a>
+            <a href="index.php?s=home" class="botonPrimario">Ir a la home</a>
         </li>
     </ul>
-    <div>
-        <img src="/../images/dibu-404.png" alt="dibu-martinez-404">
-    </div>
 </main>

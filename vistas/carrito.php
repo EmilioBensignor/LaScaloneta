@@ -14,7 +14,7 @@ $items = $carrito->getItems();
     <?php else: ?>
         <section class="sectionCarrito">
             <form action="acciones/carrito/vaciar.php" method="post" class="formVaciarCarrito">
-                <button type="submit" class="botonPrimario vaciarCarrito">Vaciar Carrito</button>
+                <button type="submit" class="botonPrimario botonUnderline">Vaciar Carrito</button>
             </form>
             <div class="carritoContainer">
                 <?php foreach ($items as $jugadorId => $cantidad):

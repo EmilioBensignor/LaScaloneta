@@ -1,5 +1,5 @@
 <?php
-if(!isset($_GET['id'])) {
+if (!isset($_GET['id'])) {
     $_SESSION['mensajeError'] = "ID de usuario no proporcionado";
     header('Location: index.php?s=usuarios');
     exit;
@@ -14,7 +14,7 @@ $stmtUsuario = $db->prepare($queryUsuario);
 $stmtUsuario->execute([$userId]);
 $usuario = $stmtUsuario->fetch(PDO::FETCH_ASSOC);
 
-if(!$usuario) {
+if (!$usuario) {
     $_SESSION['mensajeError'] = "Usuario no encontrado";
     header('Location: index.php?s=usuarios');
     exit;
@@ -48,82 +48,48 @@ foreach ($compras as $compra) {
 }
 ?>
 
-<div class="container">
-    <h1>Compras realizadas por <?= htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellido']) ?></h1>
-    
-    <a href="index.php?s=usuarios" class="btn-back">← Volver a usuarios</a>
+<main class="container">
+    <section class="sectionAdmin">
+        <h1>Compras realizadas por <?= htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellido']) ?></h1>
 
-    <?php if(empty($compras)): ?>
-        <p>No hay compras registradas para este usuario.</p>
-    <?php else: ?>
-        <?php foreach($comprasAgrupadas as $compraId => $compra): ?>
-            <div class="compra-grupo">
-                <h2>Compra #<?= htmlspecialchars($compraId) ?> - <?= htmlspecialchars(date('d/m/Y', strtotime($compra['fecha_compra'])))?></h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Jugador</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($compra['items'] as $item): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($item['jugador_nombre'] . ' ' . $item['jugador_apellido'])?></td>
-                                <td><?= htmlspecialchars($item['cantidad'])?></td>
-                                <td>$<?= htmlspecialchars($item['precio'])?></td>
-                                <td>$<?= htmlspecialchars($item['cantidad'] * $item['precio'])?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                        <tr class="total-row">
-                            <td colspan="3" class="text-right"><strong>Total de la compra:</strong></td>
-                            <td><strong>$<?= htmlspecialchars($compra['total_compra'])?></strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <a href="index.php?s=usuarios" class="botonPrimario volverButton">← Volver a usuarios</a>
+
+        <?php if (empty($compras)): ?>
+            <p>No hay compras registradas para este usuario.</p>
+        <?php else: ?>
+            <div class="comprasContainer">
+                <?php foreach ($comprasAgrupadas as $compraId => $compra): ?>
+                    <div class="compraGrupo">
+                        <h2>Compra #<?= htmlspecialchars($compraId) ?> - <?= htmlspecialchars(date('d/m/Y', strtotime($compra['fecha_compra']))) ?></h2>
+                        <div class="tablaAdminContainer comprasUsuarios">
+                            <table class="tablaAdmin">
+                                <thead>
+                                    <tr>
+                                        <th>Jugador</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($compra['items'] as $item): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($item['jugador_nombre'] . ' ' . $item['jugador_apellido']) ?></td>
+                                            <td><?= htmlspecialchars($item['cantidad']) ?></td>
+                                            <td>$<?= htmlspecialchars($item['precio']) ?></td>
+                                            <td>$<?= htmlspecialchars($item['cantidad'] * $item['precio']) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    <tr class="total-row">
+                                        <td colspan="3" class="text-right"><strong>Total de la compra:</strong></td>
+                                        <td><strong>$<?= htmlspecialchars($compra['total_compra']) ?></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
-</div>
-
-<style>
-.btn-back {
-    display: inline-block;
-    margin: 20px 0;
-    padding: 10px 20px;
-    background-color: #6c757d;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.btn-back:hover {
-    background-color: #5a6268;
-}
-
-.compra-grupo {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-}
-
-.compra-grupo h2 {
-    margin-bottom: 15px;
-    color: #495057;
-}
-
-.total-row {
-    background-color: #e9ecef;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.table {
-    margin-bottom: 0;
-}
-</style>
+        <?php endif; ?>
+    </section>
+</main>

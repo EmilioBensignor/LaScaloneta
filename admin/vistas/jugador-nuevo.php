@@ -17,10 +17,10 @@ $estadosPublicacion = (new EstadoPublicacion())->todos();
 $posiciones = (new Posicion())->todas();
 ?>
 <main>
-    <section>
+    <section class="sectionAdmin">
         <h1>Publicar un nuevo Jugador</h1>
         <form action="acciones/jugadores-publicar.php" method="post" enctype="multipart/form-data">
-            <div>
+            <div class="formFila">
                 <label for="nombre">Nombre</label>
                 <input
                     type="text"
@@ -46,7 +46,7 @@ $posiciones = (new Posicion())->todas();
                 endif;
                 ?>
             </div>
-            <div>
+            <div class="formFila">
                 <label for="apellido">Apellido</label>
                 <input
                     type="text"
@@ -72,7 +72,7 @@ $posiciones = (new Posicion())->todas();
                 endif;
                 ?>
             </div>
-            <div>
+            <div class="formFila">
                 <label for="numero_camiseta">Numero Camiseta</label>
                 <input
                     type="number"
@@ -98,7 +98,7 @@ $posiciones = (new Posicion())->todas();
                 endif;
                 ?>
             </div>
-            <div>
+            <div class="formFila">
                 <label for="club">Club</label>
                 <input
                     type="text"
@@ -124,7 +124,7 @@ $posiciones = (new Posicion())->todas();
                 endif;
                 ?>
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="descripcion">Descripcion</label>
                 <textarea
                     id="descripcion"
@@ -147,11 +147,11 @@ $posiciones = (new Posicion())->todas();
                 endif;
                 ?>
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="imagen_jugador">Imagen del Jugador</label>
                 <input type="file" id="imagen_jugador" name="imagen_jugador" class="form-control">
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="alt_imagen_jugador">Alt de la Imagen del Jugador</label>
                 <input
                     type="text"
@@ -161,11 +161,11 @@ $posiciones = (new Posicion())->todas();
                     value="<?= $dataForm['alt_imagen_jugador'] ?? '';?>"
                 >
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="imagen_camiseta">Imagen de la Camiseta</label>
                 <input type="file" id="imagen_camiseta" name="imagen_camiseta" class="form-control">
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="alt_imagen_camiseta">Alt de la Imagen de la Camiseta</label>
                 <input
                     type="text"
@@ -175,7 +175,7 @@ $posiciones = (new Posicion())->todas();
                     value="<?= $dataForm['alt_imagen_camiseta'] ?? '';?>"
                 >
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="precio">Precio</label>
                 <input
                     type="number"
@@ -194,7 +194,7 @@ $posiciones = (new Posicion())->todas();
                     <div class="msg-error" id="error-precio"><?= $errores['precio'];?></div>
                 <?php endif; ?>
             </div>
-            <div class="form-fila">
+            <div class="formFila">
                 <label for="estado_publicacion_fk">Estado de Publicación</label>
                 <select name="estado_publicacion_fk" id="estado_publicacion_fk" class="form-control">
                 <?php
@@ -211,7 +211,7 @@ $posiciones = (new Posicion())->todas();
                 ?>
                 </select>
             </div>
-            <div class="form-fila">
+            <div class="formCheck">
                 <?php
                 foreach($posiciones as $posicion):
                 ?>
@@ -228,7 +228,7 @@ $posiciones = (new Posicion())->todas();
                     endforeach;
                 ?>
             </div>
-            <button type="submit" class="button">Publicar</button>
+            <button type="submit" class="botonPrimario">Publicar</button>
         </form>
     </section>
 </main>

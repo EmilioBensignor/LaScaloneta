@@ -29,9 +29,9 @@ if (!empty($searchTerm)) {
             camiseta!
         </p>
         <!-- Agregar formulario de búsqueda -->
-        <form class="buscador-form" method="get" action="index.php">
+        <form class="buscadorForm" method="get" action="index.php">
             <input type="hidden" name="s" value="plantilla">
-            <div class="buscador-container">
+            <div class="buscadorContainer">
                 <input 
                     type="text" 
                     name="search" 
